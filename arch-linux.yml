@@ -68,6 +68,8 @@
         - visual-studio-code-bin
         - nerd-fonts-meslo
         - keyleds
+      tags:
+        - aur
 
     - name: Add dvorak keyboard layout
       community.general.dconf:
