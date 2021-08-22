@@ -4,6 +4,9 @@
 - hosts: localhost
   gather_facts: true
 
+  roles:
+    - gnome
+
   tasks:
     - name: Install packages
       become: yes
@@ -23,11 +26,9 @@
         - rsync
         - networkmanager-openvpn
         - intel-ucode
-        - gnome-firmware
         - linux-firmware
         - sof-firmware
         - fwupd
-        - gnome-tweaks
         - networkmanager
         - os-prober
         - ttf-cascadia-code
@@ -71,8 +72,3 @@
         - obsidian
       tags:
         - aur
-
-    - name: Add dvorak keyboard layout
-      community.general.dconf:
-        key: /org/gnome/desktop/input-sources/sources
-        value: "[('xkb', 'us'), ('xkb', 'us+dvorak')]"
