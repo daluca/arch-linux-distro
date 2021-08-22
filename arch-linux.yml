@@ -1,0 +1,6 @@
+---
+# arch-linux.yml
+
+- hosts: localhost
+  gather_facts: true
+  
