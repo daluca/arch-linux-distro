@@ -1,0 +1,23 @@
+name: Lint ansible playbook
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    paths:
+      - "arch-linux.yml"
+      - "**/workflows/*.yml"
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: lint playbook
+        uses: ansible/ansible-lint-action@v4.1.0
+        with:
+          targets: arch-linux.yml
