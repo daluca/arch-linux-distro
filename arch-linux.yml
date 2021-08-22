@@ -27,6 +27,7 @@
         - linux-firmware
         - sof-firmware
         - fwupd
+        - gnome-tweaks
 
     - name: Add dvorak keyboard layout
       community.general.dconf:
