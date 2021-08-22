@@ -33,3 +33,7 @@ Actually run the playbook
 ``` bast
 ansible-playbook arch-linux.yml
 ```
+
+## Lenovo ThinkPad X1 Carbon (Gen 8)
+
+Arch Linux specifics for [Lenovo ThinkPad X1 Carbon (Gen 8)](https://wiki.archlinux.org/title/Lenovo_ThinkPad_X1_Carbon_(Gen_8)) can be found on the Arch Wiki

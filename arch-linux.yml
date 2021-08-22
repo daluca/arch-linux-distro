@@ -3,4 +3,27 @@
 
 - hosts: localhost
   gather_facts: true
-  
+
+  tasks:
+    - name: Install packages
+      become: yes
+      community.general.pacman:
+        update-cache: yes
+        name: "{{ item }}"
+        state: present
+      loop:
+        - tmux
+        - htop
+        - firefox
+        - man-db
+        - git
+        - zsh
+        - wget
+        - curl
+        - rsync
+        - networkmanager-openvpn
+        - intel-ucode
+        - gnome-firmware
+        - linux-firmware
+        - sof-firmware
+        - fwupd
