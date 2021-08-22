@@ -28,6 +28,36 @@
         - sof-firmware
         - fwupd
         - gnome-tweaks
+        - networkmanager
+        - os-prober
+        - ttf-cascadia-code
+        - ttf-fira-code
+        - vim
+        - wireless_tools
+        - wpa_supplicant
+        - dialog
+        - dosfstools
+        - efibootmgr
+        - grub
+        - gtk2
+        - linux
+        - linux-headers
+        - linux-lts
+        - linux-lts-headers
+        - lvm2
+        - mesa
+        - netctl
+        - base
+        - mtools
+        - sudo
+        - jq
+        - openssh
+        - python
+        - gnupg
+        - pcsclite
+        - ccid
+        - hopenpgp-tools
+        - yubikey-personalization
 
     - name: Install AUR packages
       become: yes
