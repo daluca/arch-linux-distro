@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.x"
-          architechture: x64
+          architecture: x64
 
       - name: install ansible-lint
         run: |
@@ -29,5 +29,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: lint playbook
-        uses: ansible/ansible-lint-action@v4.1.0
         run: ansible-lint arch-linux.yml -f pep8 --project-dir . --progressive
