@@ -67,6 +67,7 @@
       loop:
         - visual-studio-code-bin
         - nerd-fonts-meslo
+        - keyleds
 
     - name: Add dvorak keyboard layout
       community.general.dconf:
