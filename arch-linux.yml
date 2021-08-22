@@ -60,7 +60,6 @@
         - yubikey-personalization
 
     - name: Install AUR packages
-      become: yes
       community.general.pacman:
         name: "{{ item }}"
         state: present
