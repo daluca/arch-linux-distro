@@ -27,3 +27,8 @@
         - linux-firmware
         - sof-firmware
         - fwupd
+
+    - name: Add dvorak keyboard layout
+      community.general.dconf:
+        key: /org/gnome/desktop/input-sources/sources
+        value: "[('xkb', 'us'), ('xkb', 'us+dvorak')]"
