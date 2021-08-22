@@ -68,6 +68,7 @@
         - visual-studio-code-bin
         - nerd-fonts-meslo
         - keyleds
+        - obsidian
       tags:
         - aur
 
