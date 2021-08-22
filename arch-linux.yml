@@ -60,7 +60,6 @@
         - yubikey-personalization
 
     - name: Install AUR packages
-      become: yes
       community.general.pacman:
         name: "{{ item }}"
         state: present
@@ -68,6 +67,9 @@
       loop:
         - visual-studio-code-bin
         - nerd-fonts-meslo
+        - keyleds
+      tags:
+        - aur
 
     - name: Add dvorak keyboard layout
       community.general.dconf:
