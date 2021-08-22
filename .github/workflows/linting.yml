@@ -17,7 +17,17 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v2
 
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+          architechture: x64
+
+      - name: install ansible-lint
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: lint playbook
         uses: ansible/ansible-lint-action@v4.1.0
-        with:
-          targets: arch-linux.yml
+        run: ansible-lint arch-linux.yml -f pep8 --project-dir . --progressive
