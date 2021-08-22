@@ -29,6 +29,16 @@
         - fwupd
         - gnome-tweaks
 
+    - name: Install AUR packages
+      become: yes
+      community.general.pacman:
+        name: "{{ item }}"
+        state: present
+        executable: paru
+      loop:
+        - visual-studio-code-bin
+        - nerd-fonts-meslo
+
     - name: Add dvorak keyboard layout
       community.general.dconf:
         key: /org/gnome/desktop/input-sources/sources
