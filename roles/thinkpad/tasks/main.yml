@@ -1,11 +1,6 @@
 ---
 # roles/thinkpad/tasks/main.yml
 
-- name: install Thinkpad X1 Carbon (Gen 8) specific packages
-  become: yes
+- name: install packages for Arch Linux
   when: ansible_facts['os_family']|lower == 'archlinux'
-  community.general.pacman:
-    name: "{{ item }}"
-    state: present
-    update_cache: yes
-  loop: "{{ packages.archlinux }}"
+  import_tasks: archlinux.yml
