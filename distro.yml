@@ -13,7 +13,7 @@
     - name: Install packages
       become: yes
       community.general.pacman:
-        update-cache: yes
+        update_cache: yes
         name: "{{ item }}"
         state: present
       loop:
