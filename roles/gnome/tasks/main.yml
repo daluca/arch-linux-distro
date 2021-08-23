@@ -6,8 +6,7 @@
   community.general.pacman:
     name: "{{ item }}"
     state: present
-  loop:
-    "{{ packages.gnome }}"
+  loop: "{{ packages.gnome }}"
 
 - name: install gnome packages applicable for Thinkpad X1 Carbon (Gen 8)
   become: yes
@@ -15,8 +14,7 @@
   community.general.pacman:
     name: "{{ item }}"
     state: present
-  loop:
-    "{{ packages.thinkpad }}"
+  loop: "{{ packages.thinkpad }}"
 
 - name: Add dvorak keyboard layout
   community.general.dconf:
