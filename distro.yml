@@ -5,8 +5,9 @@
   gather_facts: true
 
   roles:
-    - gnome
+    - arch-linux
     - thinkpad
+    - gnome
 
   tasks:
     - name: Install packages
@@ -26,28 +27,11 @@
         - curl
         - rsync
         - networkmanager-openvpn
-        - networkmanager
-        - os-prober
         - ttf-cascadia-code
         - ttf-fira-code
         - vim
-        - wireless_tools
-        - wpa_supplicant
-        - dialog
-        - dosfstools
-        - efibootmgr
-        - grub
         - gtk2
-        - linux
-        - linux-headers
-        - linux-lts
-        - linux-lts-headers
-        - lvm2
         - mesa
-        - netctl
-        - base
-        - mtools
-        - sudo
         - jq
         - openssh
         - python

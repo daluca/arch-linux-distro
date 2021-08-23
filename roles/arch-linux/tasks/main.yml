@@ -1,0 +1,10 @@
+---
+# roles/arch-linux/tasks/main.yml
+
+- name: install Arch Linux specific packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item  }}"
+    state: present
+    update_cache: yes
+  loop: "{{ packages }}"
