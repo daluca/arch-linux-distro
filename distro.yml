@@ -5,7 +5,9 @@
   gather_facts: true
 
   roles:
-    - archlinux
+    - role: archlinux
+      vars:
+        hostname: artemis
     - thinkpad
     - gnome
 

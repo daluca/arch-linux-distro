@@ -8,3 +8,13 @@
     state: present
     update_cache: yes
   loop: "{{ packages }}"
+
+- name: set hostname to {{ hostname }}
+  become: yes
+  ansible.builtin.template:
+    src: hostname.j2
+    dest: /etc/hostname
+    owner: root
+    group: root
+    mode: "0644"
+  tags: hostname
