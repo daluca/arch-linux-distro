@@ -18,3 +18,12 @@
     group: root
     mode: "0644"
   tags: hostname
+
+- name: set mirrorlist
+  become: yes
+  ansible.builtin.template:
+    src: mirrorlist.j2
+    dest: /etc/pacman.d/mirrorlist
+    owner: root
+    group: root
+    mode: "0644"
