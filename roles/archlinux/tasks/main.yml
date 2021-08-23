@@ -1,0 +1,55 @@
+---
+# roles/arch-linux/tasks/main.yml
+
+- name: install Arch Linux specific packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item  }}"
+    state: present
+    update_cache: yes
+  loop: "{{ packages }}"
+
+- name: set hostname to {{ hostname }}
+  become: yes
+  ansible.builtin.template:
+    src: hostname.j2
+    dest: /etc/hostname
+    owner: root
+    group: root
+    mode: "0644"
+  tags: hostname
+
+- name: pacman set mirrorlist
+  become: yes
+  ansible.builtin.template:
+    src: mirrorlist.j2
+    dest: /etc/pacman.d/mirrorlist
+    owner: root
+    group: root
+    mode: "0644"
+  tags: pacman
+
+- name: pacman enable multilib
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/pacman.conf
+    regexp: "^#\\[multilib\\]"
+    line: "[multilib]"
+  tags: pacman
+
+- name: pacman set multilib mirrorlist
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/pacman.conf
+    insertafter: "\\[multilib\\]"
+    regexp: "^#Include = /etc/pacman.d/mirrorlist"
+    line: "Include = /etc/pacman.d/mirrorlist"
+  tags: pacman
+
+- name: pacman use colour
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/pacman.conf
+    regexp: "^#Color"
+    line: "Color"
+  tags: pacman

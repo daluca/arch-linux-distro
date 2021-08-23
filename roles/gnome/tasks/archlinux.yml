@@ -1,0 +1,19 @@
+---
+# roles/gnome/tasks/archlinux.yml
+
+- name: install gnome specific packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: "{{ packages.gnome }}"
+
+- name: install gnome packages applicable for Thinkpad X1 Carbon (Gen 8)
+  become: yes
+  when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8'
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: "{{ packages.thinkpad }}"
