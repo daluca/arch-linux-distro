@@ -3,7 +3,7 @@
 
 - name: install Thinkpad X1 Carbon (Gen 8) specific packages
   become: yes
-  when: ansible_facts['os_family'] == 'Archlinux'
+  when: ansible_facts['os_family']|lower == 'archlinux'
   community.general.pacman:
     name: "{{ item }}"
     state: present

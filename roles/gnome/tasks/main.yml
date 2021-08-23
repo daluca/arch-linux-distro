@@ -3,7 +3,7 @@
 
 - name: install gnome specific packages
   become: yes
-  when: ansible_facts['os_family'] == 'Archlinux'
+  when: ansible_facts['os_family']|lower == 'archlinux'
   community.general.pacman:
     name: "{{ item }}"
     state: present
@@ -12,7 +12,7 @@
 
 - name: install gnome packages applicable for Thinkpad X1 Carbon (Gen 8)
   become: yes
-  when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8' and ansible_facts['os_family'] == 'Archlinux'
+  when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8' and ansible_facts['os_family']|lower == 'archlinux'
   community.general.pacman:
     name: "{{ item }}"
     state: present
