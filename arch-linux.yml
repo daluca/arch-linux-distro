@@ -6,6 +6,7 @@
 
   roles:
     - gnome
+    - thinkpad
 
   tasks:
     - name: Install packages
@@ -25,10 +26,6 @@
         - curl
         - rsync
         - networkmanager-openvpn
-        - intel-ucode
-        - linux-firmware
-        - sof-firmware
-        - fwupd
         - networkmanager
         - os-prober
         - ttf-cascadia-code

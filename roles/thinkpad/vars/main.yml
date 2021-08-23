@@ -1,0 +1,10 @@
+---
+# roles/thinkpad/vars/main.yml
+
+packages:
+  archlinux:
+    - linux-firmware
+    - intel-ucode
+    - fwupd
+    - linux-firmware
+    - sof-firmware
