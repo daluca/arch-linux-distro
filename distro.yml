@@ -31,7 +31,6 @@
         - ttf-fira-code
         - vim
         - gtk2
-        - mesa
         - jq
         - openssh
         - python
