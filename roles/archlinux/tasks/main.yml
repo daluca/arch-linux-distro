@@ -19,7 +19,7 @@
     mode: "0644"
   tags: hostname
 
-- name: set mirrorlist
+- name: pacman set mirrorlist
   become: yes
   ansible.builtin.template:
     src: mirrorlist.j2
