@@ -6,7 +6,7 @@ on:
 
   pull_request:
     paths:
-      - "arch-linux.yml"
+      - "distro.yml"
       - "**/workflows/*.yml"
 
 jobs:
@@ -29,4 +29,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: lint playbook
-        run: ansible-lint arch-linux.yml -f pep8 --project-dir . --progressive
+        run: ansible-lint distro.yml -f pep8 --project-dir . --progressive
