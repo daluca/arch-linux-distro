@@ -5,7 +5,7 @@
   gather_facts: true
 
   roles:
-    - arch-linux
+    - archlinux
     - thinkpad
     - gnome
 
