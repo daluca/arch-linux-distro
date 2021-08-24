@@ -9,7 +9,8 @@
       when: ansible_facts['os_family']|lower == 'archlinux'
     - role: thinkpad
       when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8'
-    - gnome
+    - role: gnome
+      when: ansible_facts['env']['DESKTOP_SESSION']|lower == 'gnome'
 
   tasks:
     - name: Install packages
