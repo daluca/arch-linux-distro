@@ -1,0 +1,11 @@
+---
+# inventory/group_vars/all.yml
+
+user:
+  username: daluca
+  group:
+    primary: users
+    secondary:
+      - wheel
+
+hostname: artemis

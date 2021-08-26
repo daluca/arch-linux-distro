@@ -16,37 +16,31 @@
     dest: /etc/hostname
     owner: root
     group: root
-    mode: "0644"
+    mode: 0644
   tags: hostname
 
-- name: pacman set mirrorlist
+- name: set pacman mirrorlist
   become: yes
   ansible.builtin.template:
     src: mirrorlist.j2
     dest: /etc/pacman.d/mirrorlist
     owner: root
     group: root
-    mode: "0644"
+    mode: 0644
   tags: pacman
 
-- name: pacman enable multilib
+- name: enable multilib in pacman
   become: yes
-  ansible.builtin.lineinfile:
+  ansible.builtin.blockinfile:
     path: /etc/pacman.conf
-    regexp: "^#\\[multilib\\]"
-    line: "[multilib]"
+    backup: yes
+    insertafter: "^#\\[multilib\\]"
+    block: |
+      [multilib]
+      Include = /etc/pacman.d/mirrorlist
   tags: pacman
 
-- name: pacman set multilib mirrorlist
-  become: yes
-  ansible.builtin.lineinfile:
-    path: /etc/pacman.conf
-    insertafter: "\\[multilib\\]"
-    regexp: "^#Include = /etc/pacman.d/mirrorlist"
-    line: "Include = /etc/pacman.d/mirrorlist"
-  tags: pacman
-
-- name: pacman use colour
+- name: use colour in pacman
   become: yes
   ansible.builtin.lineinfile:
     path: /etc/pacman.conf

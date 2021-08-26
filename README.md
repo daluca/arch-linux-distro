@@ -25,13 +25,19 @@ pip3 install --upgrade --requirement requirements.txt
 Dry run playbook.yml
 
 ``` bash
-ansible-playbook arch-linux.yml --check
+ansible-playbook distro.yml --check
 ```
 
 Actually run the playbook
 
-``` bast
-ansible-playbook arch-linux.yml
+``` bash
+ansible-playbook distro.yml
+```
+
+Include variables file
+
+``` bash
+ansible-playbook distro.yml --extra-vars "@variables.yml"
 ```
 
 ## Lenovo ThinkPad X1 Carbon (Gen 8)
