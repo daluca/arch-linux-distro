@@ -7,7 +7,9 @@
     name: "{{ item  }}"
     state: present
     update_cache: yes
-  loop: "{{ packages }}"
+  loop:
+    - "{{ packages.base }}"
+    - "{{ packages.pacman }}"
 
 - name: set hostname to {{ hostname }}
   become: yes
@@ -57,4 +59,12 @@
     path: /etc/pacman.conf
     regexp: "^#Color"
     line: "Color"
+  tags: pacman
+
+- name: enable clearing pacman cache weekly
+  become: yes
+  ansible.builtin.systemd:
+    name: paccache.timer
+    state: started
+    enabled: yes
   tags: pacman
