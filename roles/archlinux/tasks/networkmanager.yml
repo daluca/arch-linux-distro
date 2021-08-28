@@ -1,0 +1,18 @@
+---
+# roles/archlinux/tasks/networkmanager.yml
+
+- name: install networkmanager specific packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item  }}"
+    state: present
+    update_cache: yes
+  loop: "{{ packages.networkmanager }}"
+  tags: pacman
+
+- name: network manager enabled
+  become: yes
+  ansible.builtin.systemd:
+    name: NetworkManager
+    state: started
+    enabled: yes
