@@ -11,7 +11,7 @@ make run
 Passing `ansible-playbook` flags to `make`
 
 ``` bash
-make run ANSIBLE_FLAGS="--tags pacman"
+make run PLAYBOOK_ARGS="--tags pacman"
 ```
 
 ## Command-line
