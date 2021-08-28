@@ -40,6 +40,7 @@
         - python
         - kubectl
         - kubectx
+        - doctl
 
     - name: Install AUR packages
       community.general.pacman:
