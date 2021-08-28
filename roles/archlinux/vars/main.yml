@@ -2,21 +2,24 @@
 # roles/arch-linux/vars/main.yml
 
 packages:
-  - base
-  - networkmanager
-  - os-prober
-  - wireless_tools
-  - wpa_supplicant
-  - dialog
-  - dosfstools
-  - efibootmgr
-  - grub
-  - linux
-  - linux-headers
-  - linux-lts
-  - linux-lts-headers
-  - lvm2
-  - netctl
-  - mtools
-  - sudo
-  - openssh
+  base:
+    - base
+    - networkmanager
+    - os-prober
+    - wireless_tools
+    - wpa_supplicant
+    - dialog
+    - dosfstools
+    - efibootmgr
+    - grub
+    - linux
+    - linux-headers
+    - linux-lts
+    - linux-lts-headers
+    - lvm2
+    - netctl
+    - mtools
+    - sudo
+    - openssh
+  pacman:
+    - pacman-contrib
