@@ -4,6 +4,34 @@
 - hosts: localhost
   gather_facts: true
 
+  vars:
+    pacman:
+      - tmux
+      - htop
+      - firefox
+      - man-db
+      - git
+      - zsh
+      - wget
+      - curl
+      - rsync
+      - ttf-cascadia-code
+      - ttf-fira-code
+      - vim
+      - jq
+      - openssh
+      - python
+      - kubectl
+      - kubectx
+      - doctl
+      - terraform
+    aur:
+      - visual-studio-code-bin
+      - nerd-fonts-meslo
+      - keyleds
+      - obsidian
+      - fluxctl-bin
+
   roles:
     - role: archlinux
       when: ansible_facts['os_family']|lower == 'archlinux'
@@ -21,38 +49,12 @@
         update_cache: yes
         name: "{{ item }}"
         state: present
-      loop:
-        - tmux
-        - htop
-        - firefox
-        - man-db
-        - git
-        - zsh
-        - wget
-        - curl
-        - rsync
-        - networkmanager-openvpn
-        - ttf-cascadia-code
-        - ttf-fira-code
-        - vim
-        - jq
-        - openssh
-        - python
-        - kubectl
-        - kubectx
-        - doctl
-        - terraform
+      loop: ["{{ pacman }}"]
 
     - name: Install AUR packages
       community.general.pacman:
         name: "{{ item }}"
         state: present
         executable: paru
-      loop:
-        - visual-studio-code-bin
-        - nerd-fonts-meslo
-        - keyleds
-        - obsidian
-        - fluxctl-bin
-      tags:
-        - aur
+      loop: ["{{ aur }}"]
+      tags: aur

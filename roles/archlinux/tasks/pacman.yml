@@ -1,0 +1,47 @@
+---
+# roles/archlinux/tasks/pacman.yml
+
+- name: install pacman specific packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item  }}"
+    state: present
+    update_cache: yes
+  loop: ["{{ packages.pacman }}"]
+
+- name: set pacman mirrorlist
+  become: yes
+  ansible.builtin.template:
+    src: mirrorlist.j2
+    dest: /etc/pacman.d/mirrorlist
+    owner: root
+    group: root
+    mode: 0644
+  tags: pacman
+
+- name: enable multilib in pacman
+  become: yes
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    backup: yes
+    insertafter: "^#\\[multilib\\]"
+    block: |
+      [multilib]
+      Include = /etc/pacman.d/mirrorlist
+  tags: pacman
+
+- name: use colour in pacman
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/pacman.conf
+    regexp: "^#Color"
+    line: "Color"
+  tags: pacman
+
+- name: enable clearing pacman cache weekly
+  become: yes
+  ansible.builtin.systemd:
+    name: paccache.timer
+    state: started
+    enabled: yes
+  tags: pacman
