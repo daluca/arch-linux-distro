@@ -28,3 +28,14 @@
     owner: "{{ user.username }}"
     group: "{{ user.group.primary }}"
     mode: 0600
+
+- name: remove pinentry-curses as default
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_facts.env.HOME }}/.gnupg/gpg-agent.conf"
+    regex: "^pinentry-program /usr/bin/pinentry-curses"
+    line: "#pinentry-program /usr/bin/pinentry-curses"
+
+- name: set pinentry-curses as fallback
+  ansible.builtin.lineinfile:
+    path: /etc/profile
+    line: export PINENTRY_USER_DATA="USE_CURSES=1"
