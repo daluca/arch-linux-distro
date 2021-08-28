@@ -25,6 +25,7 @@
       - kubectx
       - doctl
       - terraform
+      - vlc
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
