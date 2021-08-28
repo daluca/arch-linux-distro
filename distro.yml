@@ -41,6 +41,7 @@
         - kubectl
         - kubectx
         - doctl
+        - terraform
 
     - name: Install AUR packages
       community.general.pacman:
