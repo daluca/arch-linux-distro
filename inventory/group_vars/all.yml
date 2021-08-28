@@ -7,5 +7,6 @@ user:
     primary: users
     secondary:
       - wheel
+  editor: vim
 
 hostname: artemis
