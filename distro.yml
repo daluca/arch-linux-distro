@@ -35,10 +35,12 @@
         - ttf-cascadia-code
         - ttf-fira-code
         - vim
-        - gtk2
         - jq
         - openssh
         - python
+        - kubectl
+        - kubectx
+        - doctl
 
     - name: Install AUR packages
       community.general.pacman:
@@ -50,5 +52,6 @@
         - nerd-fonts-meslo
         - keyleds
         - obsidian
+        - fluxctl-bin
       tags:
         - aur
