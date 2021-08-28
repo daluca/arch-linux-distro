@@ -1,0 +1,12 @@
+---
+# roles/yubikey/vars/main.yml
+
+packages:
+  yubikey:
+    - gnupg
+    - pcsclite
+    - ccid
+    - hopenpgp-tools
+    - yubikey-personalization
+  archlinux:
+    - gtk2

@@ -5,10 +5,10 @@ VENV_BIN = $(VENV)/bin
 ANSIBLE = $(PYTHON) $(VENV_BIN)/ansible-playbook
 PLAYBOOK = distro.yml
 
-.PHONY = help clean freeze
+.PHONY = help clean
 
 help:
-	@echo "commands: help, run, venv, clean"
+	@echo "commands: help, run, check, venv, clean"
 
 run: venv
 	@$(ANSIBLE) $(PLAYBOOK) $(PLAYBOOK_ARGS)

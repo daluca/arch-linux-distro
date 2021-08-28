@@ -1,0 +1,30 @@
+---
+# roles/yubikey/tasks/main.yml
+
+- name: install packages for Arch Linux
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: create gnupg config directory
+  ansible.builtin.file:
+    path: "{{ ansible_facts.env.HOME }}/.gnupg"
+    state: directory
+    owner: "{{ user.username }}"
+    group: "{{ user.group.primary }}"
+    mode: 0700
+
+- name: get hardened gpg config
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/drduh/config/master/gpg.conf
+    dest: "{{ ansible_facts.env.HOME }}/.gnupg/gpg.conf"
+    owner: "{{ user.username }}"
+    group: "{{ user.group.primary }}"
+    mode: 0600
+
+- name: get hardend gpg-agent config
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/drduh/config/master/gpg-agent.conf
+    dest: "{{ ansible_facts.env.HOME }}/.gnupg/gpg-agent.conf"
+    owner: "{{ user.username }}"
+    group: "{{ user.group.primary }}"
+    mode: 0600
