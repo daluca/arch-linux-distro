@@ -7,7 +7,7 @@
     name: "{{ item  }}"
     state: present
     update_cache: yes
-  loop: "{{ packages.networkmanager }}"
+  loop: ["{{ packages.networkmanager }}"]
   tags: pacman
 
 - name: network manager enabled

@@ -7,7 +7,7 @@
     name: "{{ item }}"
     state: present
     update_cache: yes
-  loop: "{{ packages.gnome }}"
+  loop: ["{{ packages.gnome }}"]
 
 - name: install gnome packages applicable for Thinkpad X1 Carbon (Gen 8)
   become: yes
@@ -16,4 +16,4 @@
     name: "{{ item }}"
     state: present
     update_cache: yes
-  loop: "{{ packages.thinkpad }}"
+  loop: ["{{ packages.thinkpad }}"]

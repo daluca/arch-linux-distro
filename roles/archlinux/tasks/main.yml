@@ -7,7 +7,26 @@
     name: "{{ item  }}"
     state: present
     update_cache: yes
-  loop: "{{ packages.base }}"
+  loop: ["{{ packages.base }}"]
+
+- name: set hostname to {{ hostname }}
+  become: yes
+  ansible.builtin.template:
+    src: hostname.j2
+    dest: /etc/hostname
+    owner: root
+    group: root
+    mode: 0644
+
+- name: set hosts file
+  become: yes
+  ansible.builtin.template:
+    src: hosts.j2
+    dest: /etc/hosts
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
 
 - name: pacman preferences
   import_tasks: pacman.yml
