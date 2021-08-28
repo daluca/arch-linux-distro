@@ -30,7 +30,7 @@
       - nerd-fonts-meslo
       - keyleds
       - obsidian
-      - fluxctl-bin
+      - flux-bin
 
   roles:
     - role: archlinux
