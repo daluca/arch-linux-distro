@@ -36,6 +36,10 @@
     line: "#pinentry-program /usr/bin/pinentry-curses"
 
 - name: set pinentry-curses as fallback
-  ansible.builtin.lineinfile:
+  become: yes
+  ansible.builtin.blockinfile:
     path: /etc/profile
-    line: export PINENTRY_USER_DATA="USE_CURSES=1"
+    block: |
+      # Set default editor
+      export PINENTRY_USER_DATA="USE_CURSES=1"
+  tags: test
