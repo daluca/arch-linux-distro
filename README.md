@@ -39,7 +39,7 @@ pip3 install --upgrade --requirement requirements.txt
 
 ### Running
 
-Dry run playbook.yml
+Dry run distro.yml
 
 ``` bash
 ansible-playbook distro.yml --check
