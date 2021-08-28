@@ -8,7 +8,7 @@ PLAYBOOK = distro.yml
 .PHONY = help clean
 
 help:
-	@echo "commands: help, run, venv, clean"
+	@echo "commands: help, run, check, venv, clean"
 
 run: venv
 	@$(ANSIBLE) $(PLAYBOOK) $(PLAYBOOK_ARGS)
