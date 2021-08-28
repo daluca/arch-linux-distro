@@ -5,7 +5,7 @@ bracex==2.1.1
 cffi==1.14.6
 colorama==0.4.4
 commonmark==0.9.1
-cryptography==3.4.7
+cryptography==3.4.8
 enrich==1.2.6
 Jinja2==3.0.1
 MarkupSafe==2.0.1
@@ -17,7 +17,7 @@ pyparsing==2.4.7
 PyYAML==5.4.1
 resolvelib==0.5.4
 rich==10.7.0
-ruamel.yaml==0.17.13
+ruamel.yaml==0.17.14
 ruamel.yaml.clib==0.2.6
 tenacity==8.0.1
 wcmatch==8.2
