@@ -50,7 +50,6 @@
         name: "{{ item }}"
         state: present
       loop: ["{{ pacman }}"]
-      tags: test
 
     - name: Install AUR packages
       community.general.pacman:
