@@ -68,3 +68,6 @@
     state: started
     enabled: yes
   tags: pacman
+
+- name: install network manager
+  import_tasks: networkmanager.yml

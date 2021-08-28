@@ -4,7 +4,6 @@
 packages:
   base:
     - base
-    - networkmanager
     - os-prober
     - wireless_tools
     - wpa_supplicant
@@ -23,3 +22,6 @@ packages:
     - openssh
   pacman:
     - pacman-contrib
+  networkmanager:
+    - networkmanager
+    - networkmanager-openvpn
