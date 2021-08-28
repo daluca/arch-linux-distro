@@ -1,6 +1,23 @@
 # Arch Linux distro
 
-## Setup
+## Make
+
+Using `make` to run `ansible-playbook`
+
+``` bash
+make run
+```
+
+Passing `ansible-playbook` flags to `make`
+
+``` bash
+make run ANSIBLE_FLAGS="--tags pacman"
+```
+
+## Command-line
+
+Using the actual command-line tools to run `ansible-playbook`
+### Setup
 
 Set up virtual environment
 
@@ -20,7 +37,7 @@ Download required packages
 pip3 install --upgrade --requirement requirements.txt
 ```
 
-## Running
+### Running
 
 Dry run playbook.yml
 
