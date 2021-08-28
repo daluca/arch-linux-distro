@@ -11,6 +11,8 @@
       when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8'
     - role: gnome
       when: ansible_facts['env']['DESKTOP_SESSION']|lower == 'gnome'
+    - role: yubikey
+      tags: yubikey
 
   tasks:
     - name: Install packages
@@ -37,11 +39,6 @@
         - jq
         - openssh
         - python
-        - gnupg
-        - pcsclite
-        - ccid
-        - hopenpgp-tools
-        - yubikey-personalization
 
     - name: Install AUR packages
       community.general.pacman:
