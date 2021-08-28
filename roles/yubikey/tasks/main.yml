@@ -39,7 +39,9 @@
   become: yes
   ansible.builtin.blockinfile:
     path: /etc/profile
+    marker_begin: PINENTRY BEGIN
+    marker_end: PINENTRY END
     block: |
-      # Set default editor
+      # Set fallback pinentry program to pinentry-curses
       export PINENTRY_USER_DATA="USE_CURSES=1"
   tags: test

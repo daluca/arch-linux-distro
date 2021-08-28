@@ -28,6 +28,16 @@
     group: root
     mode: 0644
 
+- name: set default editor
+  become: yes
+  ansible.builtin.blockinfile:
+    dest: /etc/profile
+    marker_begin: EDITOR BEGIN
+    marker_end: EDITOR END
+    block: |
+      # Set default editor
+      EDITOR={{ user.editor }}
+
 - name: pacman preferences
   import_tasks: pacman.yml
   tags: pacman
