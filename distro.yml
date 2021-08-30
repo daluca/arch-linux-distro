@@ -26,6 +26,8 @@
       - doctl
       - terraform
       - vlc
+      - nvidia
+      - nvidia-lts
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
