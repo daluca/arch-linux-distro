@@ -7,3 +7,5 @@ packages:
     - gnome-tweaks
   thinkpad:
     - gnome-firmware
+  aur:
+    - chrome-gnome-shell

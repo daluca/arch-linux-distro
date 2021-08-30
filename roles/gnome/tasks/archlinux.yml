@@ -9,6 +9,14 @@
     update_cache: yes
   loop: ["{{ packages.gnome }}"]
 
+- name: install gnome specific AUR packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+    executable: paru
+  loop: ["{{ packages.aur }}"]
+
 - name: install gnome packages applicable for Thinkpad X1 Carbon (Gen 8)
   become: yes
   when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8'
