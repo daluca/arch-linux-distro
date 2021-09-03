@@ -44,4 +44,3 @@
     block: |
       # Set fallback pinentry program to pinentry-curses
       export PINENTRY_USER_DATA="USE_CURSES=1"
-  tags: test
