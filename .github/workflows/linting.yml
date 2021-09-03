@@ -29,7 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: install ansible roles
+      - name: install ansible role dependencies
         run: ansible-galaxy install --role-file requirements.yml
 
       - name: lint playbook
