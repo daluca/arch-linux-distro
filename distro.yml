@@ -29,6 +29,7 @@
       - nvidia
       - nvidia-lts
       - tmux
+      - docker
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
