@@ -28,6 +28,7 @@
       - vlc
       - nvidia
       - nvidia-lts
+      - tmux
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
