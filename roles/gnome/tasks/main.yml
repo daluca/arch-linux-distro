@@ -5,6 +5,12 @@
   when: ansible_facts['os_family']|lower == 'archlinux'
   import_tasks: archlinux.yml
 
+- name: install gnome extensions
+  include_role:
+    name: luyz25.gnome_extensions
+  vars:
+    gnome_extension_ids: "{{ gnome.extensions }}"
+
 - name: Add dvorak keyboard layout
   community.general.dconf:
     key: /org/gnome/desktop/input-sources/sources
