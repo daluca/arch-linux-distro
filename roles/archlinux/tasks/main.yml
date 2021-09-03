@@ -42,6 +42,10 @@
   import_tasks: pacman.yml
   tags: pacman
 
+- name: paru preferences
+  import_tasks: paru.yml
+  tags: paru
+
 - name: install network manager
   import_tasks: networkmanager.yml
   tags: networkmanager

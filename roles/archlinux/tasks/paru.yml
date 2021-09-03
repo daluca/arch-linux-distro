@@ -1,0 +1,10 @@
+---
+# roles/archlinux/tasks/paru.yml
+
+- name: reverse order of paru output
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/paru.conf
+    backup: yes
+    regexp: "^#BottomUp"
+    line: "BottomUp"
