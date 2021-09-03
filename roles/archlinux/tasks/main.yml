@@ -36,7 +36,7 @@
     marker_end: EDITOR END
     block: |
       # Set default editor
-      EDITOR={{ user.editor }}
+      export EDITOR={{ user.editor }}
 
 - name: pacman preferences
   import_tasks: pacman.yml
