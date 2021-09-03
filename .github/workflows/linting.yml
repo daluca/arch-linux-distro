@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: install ansible roles
-        run: ansible-galaxy install kewlfft.aur
+        run: ansible-galaxy install --role-file requirements.yml
 
       - name: lint playbook
         run: ansible-lint distro.yml -f pep8 --project-dir .
