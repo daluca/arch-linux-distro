@@ -9,3 +9,7 @@ packages:
     - gnome-firmware
   aur:
     - chrome-gnome-shell
+
+gnome:
+  extensions:
+    - 4099 # No overview at start-up
