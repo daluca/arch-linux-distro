@@ -1,0 +1,19 @@
+---
+# roles/archlinux/tasks/paru.yml
+
+- name: create aur_builer
+  import_tasks: aur_builder.yml
+
+- name: install paru
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: paru
+
+- name: reverse order of paru output
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/paru.conf
+    backup: yes
+    regexp: "^#BottomUp"
+    line: "BottomUp"

@@ -42,6 +42,13 @@
   import_tasks: pacman.yml
   tags: pacman
 
+- name: install paru
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: paru.yml
+  tags:
+    - aur
+    - paru
+
 - name: install network manager
   import_tasks: networkmanager.yml
   tags: networkmanager

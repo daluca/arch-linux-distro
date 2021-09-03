@@ -4,6 +4,7 @@
 packages:
   base:
     - base
+    - base-devel
     - os-prober
     - wireless_tools
     - wpa_supplicant

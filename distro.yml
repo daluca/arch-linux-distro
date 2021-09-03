@@ -35,6 +35,7 @@
       - keyleds
       - obsidian
       - flux-bin
+      - gron
 
   roles:
     - role: archlinux
