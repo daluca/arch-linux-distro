@@ -29,7 +29,6 @@
       - nvidia
       - nvidia-lts
       - tmux
-      - docker
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
@@ -46,6 +45,8 @@
       when: ansible_facts['env']['DESKTOP_SESSION']|lower == 'gnome'
     - role: yubikey
       tags: yubikey
+    - role: docker
+      tags: docker
 
   tasks:
     - name: Install packages

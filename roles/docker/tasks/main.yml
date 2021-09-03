@@ -1,0 +1,20 @@
+---
+# roles/docker/tasks/main.yml
+
+- name: install packages for Arch Linux
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: docker enabled
+  become: yes
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: add {{ user.username }} to docker group
+  become: yes
+  ansible.builtin.user:
+    name: "{{ user.username }}"
+    groups: docker
+    append: yes

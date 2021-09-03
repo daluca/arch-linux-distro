@@ -1,0 +1,6 @@
+---
+# roles/docker/vars/main.yml
+
+packages:
+  docker:
+    - docker
