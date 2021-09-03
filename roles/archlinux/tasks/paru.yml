@@ -1,23 +1,8 @@
 ---
 # roles/archlinux/tasks/paru.yml
 
-- name: create aur_build user
-  become: yes
-  ansible.builtin.user:
-    name: aur_builder
-    create_home: no
-    group: wheel
-
-- name: enable passwordless sudo on pacman for aur_builder
-  become: yes
-  ansible.builtin.lineinfile:
-    path: /etc/sudoers.d/11-install-aur_builder
-    line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
-    create: yes
-    owner: root
-    group: root
-    mode: 0440
-    validate: "visudo -cf %s"
+- name: create aur_builer
+  import_tasks: aur_builder.yml
 
 - name: install paru
   become: yes
