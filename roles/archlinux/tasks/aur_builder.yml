@@ -5,7 +5,7 @@
   become: yes
   ansible.builtin.user:
     name: aur_builder
-    create_home: no
+    create_home: yes
     group: wheel
 
 - name: enable passwordless sudo on pacman for aur_builder
