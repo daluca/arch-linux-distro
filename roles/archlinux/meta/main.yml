@@ -1,5 +1,5 @@
 ---
 # roles/archlinux/meta/main.yml
 
-dependencies:
+collections:
   - kewlfft.aur

@@ -7,7 +7,7 @@
 - name: install paru
   become: yes
   become_user: aur_builder
-  aur:
+  kewlfft.aur.aur:
     name: paru
 
 - name: reverse order of paru output
