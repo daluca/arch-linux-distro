@@ -1,0 +1,40 @@
+---
+# roles/packages/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      - tmux
+      - htop
+      - firefox
+      - man-db
+      - git
+      - zsh
+      - wget
+      - curl
+      - rsync
+      - ttf-cascadia-code
+      - ttf-fira-code
+      - vim
+      - jq
+      - openssh
+      - python
+      - kubectl
+      - kubectx
+      - doctl
+      - terraform
+      - vlc
+      - nvidia
+      - nvidia-lts
+      - tmux
+      - github-cli
+      - helm
+    aur:
+      - visual-studio-code-bin
+      - nerd-fonts-meslo
+      - keyleds
+      - obsidian
+      - flux-bin
+      - gron
+      - kind
+      - bitwarden-bin
