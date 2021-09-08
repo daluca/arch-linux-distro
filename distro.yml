@@ -29,6 +29,8 @@
       - nvidia
       - nvidia-lts
       - tmux
+      - github-cli
+      - helm
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
@@ -36,6 +38,8 @@
       - obsidian
       - flux-bin
       - gron
+      - kind
+      - bitwarden-bin
 
   roles:
     - role: archlinux
