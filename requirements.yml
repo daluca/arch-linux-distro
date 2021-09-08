@@ -1,4 +1,5 @@
 ---
 # requirements.yml
 
-- name: kewlfft.aur
+collections:
+  - name: kewlfft.aur
