@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: install ansible collection dependencies
-        run: ansible-galaxy collection install --collections-path collections.galaxy --role-file requirements.yml
+        run: ansible-galaxy collection install --collections-path collections.galaxy --requirements-file requirements.yml
 
       - name: lint playbook
         run: ansible-lint distro.yml -f pep8 --project-dir .
