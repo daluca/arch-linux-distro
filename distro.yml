@@ -4,68 +4,19 @@
 - hosts: localhost
   gather_facts: true
 
-  vars:
-    pacman:
-      - tmux
-      - htop
-      - firefox
-      - man-db
-      - git
-      - zsh
-      - wget
-      - curl
-      - rsync
-      - ttf-cascadia-code
-      - ttf-fira-code
-      - vim
-      - jq
-      - openssh
-      - python
-      - kubectl
-      - kubectx
-      - doctl
-      - terraform
-      - vlc
-      - nvidia
-      - nvidia-lts
-      - tmux
-      - github-cli
-      - helm
-    aur:
-      - visual-studio-code-bin
-      - nerd-fonts-meslo
-      - keyleds
-      - obsidian
-      - flux-bin
-      - gron
-      - kind
-      - bitwarden-bin
-
   roles:
     - role: archlinux
       when: ansible_facts['os_family']|lower == 'archlinux'
+      tags: archlinux
     - role: thinkpad
       when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8'
+      tags: thinkpad
+    - role: packages
+      tags: packages
     - role: gnome
       when: ansible_facts['env']['DESKTOP_SESSION']|lower == 'gnome'
+      tags: gnome
     - role: yubikey
       tags: yubikey
     - role: docker
       tags: docker
-
-  tasks:
-    - name: Install packages
-      become: yes
-      community.general.pacman:
-        update_cache: yes
-        name: "{{ item }}"
-        state: present
-      loop: ["{{ pacman }}"]
-
-    - name: Install AUR packages
-      community.general.pacman:
-        name: "{{ item }}"
-        state: present
-        executable: paru
-      loop: ["{{ aur }}"]
-      tags: aur

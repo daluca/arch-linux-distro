@@ -1,0 +1,20 @@
+---
+# roles/packages/tasks/archlinux.yml
+
+- name: install packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: ["{{ packages.archlinux.pacman }}"]
+
+- name: install AUR pacages
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: paru
+    aur_only: yes
+  loop: ["{{ packages.archlinux.aur }}"]

@@ -1,0 +1,5 @@
+---
+# roles/packages/tasks/main.yml
+
+- name: install Arch Linux packages
+  import_tasks: archlinux.yml
