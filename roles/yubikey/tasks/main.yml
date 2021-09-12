@@ -10,7 +10,7 @@
     path: "{{ ansible_facts.env.HOME }}/.gnupg"
     state: directory
     owner: "{{ user.username }}"
-    group: "{{ user.group.primary }}"
+    group: "{{ user.groups.primary }}"
     mode: 0700
 
 - name: get hardened gpg config
@@ -18,7 +18,7 @@
     url: https://raw.githubusercontent.com/drduh/config/master/gpg.conf
     dest: "{{ ansible_facts.env.HOME }}/.gnupg/gpg.conf"
     owner: "{{ user.username }}"
-    group: "{{ user.group.primary }}"
+    group: "{{ user.groups.primary }}"
     mode: 0600
 
 - name: get hardend gpg-agent config
@@ -26,7 +26,7 @@
     url: https://raw.githubusercontent.com/drduh/config/master/gpg-agent.conf
     dest: "{{ ansible_facts.env.HOME }}/.gnupg/gpg-agent.conf"
     owner: "{{ user.username }}"
-    group: "{{ user.group.primary }}"
+    group: "{{ user.groups.primary }}"
     mode: 0600
 
 - name: remove pinentry-curses as default
