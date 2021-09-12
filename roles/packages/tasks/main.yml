@@ -2,4 +2,5 @@
 # roles/packages/tasks/main.yml
 
 - name: install Arch Linux packages
+  when: ansible_facts['os_family']|lower == 'archlinux'
   import_tasks: archlinux.yml

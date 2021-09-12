@@ -16,6 +16,10 @@
     - role: gnome
       when: ansible_facts['env']['DESKTOP_SESSION']|lower == 'gnome'
       tags: gnome
+    - role: dotfiles
+      vars:
+        repo: git@github.com:daluca/dotfiles.git
+      tags: dotfiles
     - role: yubikey
       tags: yubikey
     - role: docker

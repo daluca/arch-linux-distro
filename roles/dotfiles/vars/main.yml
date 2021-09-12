@@ -1,0 +1,5 @@
+---
+# roles/dotfiles/vars/main.yml
+
+packages:
+  - rsync

@@ -1,0 +1,5 @@
+---
+# roles/dotfiles/meta/main.yml
+
+collections:
+  - ansible.posix
