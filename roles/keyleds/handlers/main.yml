@@ -1,0 +1,8 @@
+---
+# roles/keyleds/handlers/main.yml
+
+- name: restart keyledsd
+  become: yes
+  ansible.builtin.systemd:
+    name: keyledsd
+    state: restarted

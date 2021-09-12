@@ -5,14 +5,17 @@
   when: ansible_facts['os_family']|lower == 'archlinux'
   import_tasks: archlinux.yml
 
+- name: create user config directory
+  ansible.builtin.file:
+    path: "/home/{{ user.username }}/.config"
+    state: directory
+    mode: 0700
+
 - name: set keyleds config
-  become: yes
   ansible.builtin.template:
     src: keyledsd.conf.j2
-    dest: /etc/keyledsd.conf
-    owner: root
-    group: root
-    mode: 0644
+    dest: /home/{{ user.username }}/.config/keyledsd.conf
+    mode: 0600
 
 - name: set keyledsd systemd service
   become: yes
@@ -22,6 +25,7 @@
     owner: root
     group: root
     mode: 0664
+  notify: restart keyledsd
 
 - name: enable keyledsd
   become: yes
