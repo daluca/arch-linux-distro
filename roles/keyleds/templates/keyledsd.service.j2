@@ -1,0 +1,14 @@
+[Unit]
+Description=Keyleds daemon
+Documentation=https://github.com/keyleds/keyleds/wiki
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+Environment="XDG_CONFIG_HOME=/home/{{ user.username }}/.config"
+ExecStart=/usr/sbin/keyledsd -vv
+User={{ user.username }}
+Group={{ user.groups.primary }}
+
+[Install]
+WantedBy=multi-user.target

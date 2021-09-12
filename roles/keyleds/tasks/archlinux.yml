@@ -1,0 +1,12 @@
+---
+# roles/keyleds/tasks/archlinux.yml
+
+- name: install keyleds specific packages
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: paru
+    aur_only: yes
+  loop: ["{{ packages }}"]

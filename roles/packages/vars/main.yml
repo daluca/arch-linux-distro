@@ -12,7 +12,6 @@ packages:
       - zsh
       - wget
       - curl
-      - rsync
       - ttf-cascadia-code
       - ttf-fira-code
       - vim
@@ -32,7 +31,6 @@ packages:
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
-      - keyleds
       - obsidian
       - flux-bin
       - gron
