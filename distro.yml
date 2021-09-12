@@ -24,3 +24,5 @@
       tags: yubikey
     - role: docker
       tags: docker
+    - role: keyleds
+      tags: keyleds

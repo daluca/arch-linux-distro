@@ -1,0 +1,5 @@
+---
+# roles/keyleds/meta/main.yml
+
+collections:
+  - kewlfft.aur

@@ -1,0 +1,32 @@
+---
+# roles/keyleds/tasks/main.yml
+
+- name: install packages for Arch Linux
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: set keyleds config
+  become: yes
+  ansible.builtin.template:
+    src: keyledsd.conf.j2
+    dest: /etc/keyledsd.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: set keyledsd systemd service
+  become: yes
+  ansible.builtin.template:
+    src: keyledsd.service.j2
+    dest: /etc/systemd/system/keyledsd.service
+    owner: root
+    group: root
+    mode: 0664
+
+- name: enable keyledsd
+  become: yes
+  ansible.builtin.systemd:
+    name: keyledsd
+    state: started
+    enabled: yes
+    daemon_reload: yes
