@@ -1,0 +1,5 @@
+---
+# roles/packages/meta/main.yml
+
+collections:
+  - kewlfft.aur
