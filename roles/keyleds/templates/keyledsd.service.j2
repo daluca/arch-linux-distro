@@ -5,8 +5,8 @@ Description=Keyleds daemon
 Environment="DISPLAY=:0"
 Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
 ExecStart=/usr/sbin/keyledsd -vv -D
-User=daluca
-Group=users
+User={{ user.username }}
+Group={{ user.groups.primary }}
 
 [Install]
 WantedBy=multi-user.target
