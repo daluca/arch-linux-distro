@@ -1,0 +1,10 @@
+---
+# roles/tasks/archlinux.yml
+
+- name: install ansible.posix.synchronize dependencies
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: ["{{ packages }}"]

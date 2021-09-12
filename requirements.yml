@@ -3,3 +3,4 @@
 
 collections:
   - name: kewlfft.aur
+  - name: ansible.posix
