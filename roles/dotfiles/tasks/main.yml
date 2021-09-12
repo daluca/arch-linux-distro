@@ -5,6 +5,7 @@
   ansible.builtin.git:
     repo: "{{ repo }}"
     dest: "/home/{{ user.username }}/.dotfiles"
+    version: main
 
 - name: install Arch Linux packages
   when: ansible_facts['os_family']|lower == 'archlinux'
