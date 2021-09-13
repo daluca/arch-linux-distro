@@ -29,6 +29,7 @@ packages:
       - github-cli
       - helm
       - signal-desktop
+      - python-pipenv
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
