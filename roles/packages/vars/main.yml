@@ -28,6 +28,7 @@ packages:
       - tmux
       - github-cli
       - helm
+      - signal-desktop
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
