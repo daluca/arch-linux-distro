@@ -1,0 +1,5 @@
+---
+# roles/gnome/meta/main.yml
+
+dependencies:
+  - role: jaredhocutt.gnome_extensions

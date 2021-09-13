@@ -1,6 +1,9 @@
 ---
 # requirements.yml
 
+roles:
+  - name: jaredhocutt.gnome_extensions
+
 collections:
   - name: kewlfft.aur
   - name: ansible.posix

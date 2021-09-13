@@ -7,3 +7,10 @@ packages:
     - gnome-tweaks
   thinkpad:
     - gnome-firmware
+  aur:
+    - chrome-gnome-shell
+
+gnome:
+  extensions:
+    - 4099 # No overview at start-up
+    - 4248 # Audio Switcher 40
