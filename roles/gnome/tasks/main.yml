@@ -5,6 +5,11 @@
   when: ansible_facts['os_family']|lower == 'archlinux'
   import_tasks: archlinux.yml
 
+- name: enable user extensions
+  community.general.dconf:
+    key: /org/gnome/shell/disable-user-extensions
+    value: "false"
+
 - name: install gnome extensions
   ansible.builtin.include_role:
     name: jaredhocutt.gnome_extensions
