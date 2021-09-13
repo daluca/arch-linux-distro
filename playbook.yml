@@ -26,10 +26,3 @@
       tags: docker
     - role: keyleds
       tags: keyleds
-
-  tasks:
-    - name: Hello
-      lineinfile:
-        path: /tmp/test
-        line: "hello"
-        create: yes`
