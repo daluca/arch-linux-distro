@@ -27,7 +27,7 @@ jobs:
       - name: install ansible-lint
         run: |
           python -m pip install --upgrade pip setuptools pipenv
-          pipenv install --dev --system
+          pipenv install --dev --system --ignore-pipfile
 
       - name: install ansible role dependencies
         run: ansible-galaxy role install --roles-path roles.galaxy --role-file requirements.yml
