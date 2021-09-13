@@ -6,8 +6,8 @@
   import_tasks: archlinux.yml
 
 - name: install gnome extensions
-  include_role:
-    name: luyz25.gnome_extensions
+  ansible.builtin.include_role:
+    name: jaredhocutt.gnome_extensions
   vars:
     gnome_extension_ids: "{{ gnome.extensions }}"
 
