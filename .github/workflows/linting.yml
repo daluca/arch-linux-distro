@@ -30,10 +30,10 @@ jobs:
           pipenv install --dev --system --ignore-pipfile
 
       - name: install ansible role dependencies
-        run: ansible-galaxy role install --roles-path roles.galaxy --role-file requirements.yml
+        run: ansible-galaxy role install --roles-path roles.galaxy --role-file role/requirements.yml
 
       - name: install ansible collection dependencies
-        run: ansible-galaxy collection install --collections-path collections.galaxy --requirements-file requirements.yml
+        run: ansible-galaxy collection install --collections-path collections.galaxy --requirements-file role/requirements.yml
 
       - name: lint playbook
         run: ansible-lint distro.yml -f pep8 --project-dir .
