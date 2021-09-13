@@ -36,4 +36,4 @@ jobs:
         run: ansible-galaxy collection install --requirements-file roles/requirements.yml
 
       - name: lint playbook
-        run: ansible-lint distro.yml -f pep8 --project-dir .
+        run: ansible-lint --project-dir . -f pep8
