@@ -1,0 +1,16 @@
+# ignore everything
+/*
+
+# except for
+!.gitignore
+!requirements.yml
+
+# user roles
+!archlinux/
+!docker/
+!dotfiles/
+!gnome/
+!keyleds/
+!packages/
+!thinkpad/
+!yubikey/
