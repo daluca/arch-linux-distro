@@ -30,6 +30,7 @@ packages:
       - helm
       - signal-desktop
       - python-pipenv
+      - pavucontrol
     aur:
       - visual-studio-code-bin
       - nerd-fonts-meslo
