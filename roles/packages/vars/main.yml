@@ -39,3 +39,4 @@ packages:
       - gron
       - kind
       - bitwarden-bin
+      - exodus
