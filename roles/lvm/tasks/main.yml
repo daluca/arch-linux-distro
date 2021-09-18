@@ -1,0 +1,14 @@
+---
+# roles/lvm/tasks/main.yml
+
+- name: install packages for Arch Linux
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: set autoextend threshold to 70%
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/lvm/lvm.conf
+    regex: "^\t(?:# |#|)snapshot_autoextend_threshold = [0-9]{1,3}$"
+    line: "\tsnapshot_autoextend_threshold = 70"
+    backup: yes
