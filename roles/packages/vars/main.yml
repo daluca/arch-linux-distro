@@ -40,3 +40,4 @@ packages:
       - kind
       - bitwarden-bin
       - exodus
+      - iota-firefly-wallet
