@@ -12,7 +12,7 @@ on:
 
 jobs:
   lint:
-    name: Linting
+    name: linting
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
