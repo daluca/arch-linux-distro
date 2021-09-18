@@ -16,7 +16,6 @@ packages:
     - linux-headers
     - linux-lts
     - linux-lts-headers
-    - lvm2
     - netctl
     - mtools
     - sudo
