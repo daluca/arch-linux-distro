@@ -1,0 +1,6 @@
+---
+# roles/fonts/handlers/main.yml
+
+- name: regenerate font cache
+  ansible.builtin.command:
+    cmd: fc-cache --force

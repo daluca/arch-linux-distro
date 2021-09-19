@@ -1,0 +1,10 @@
+---
+# roles/fonts/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      - ttf-cascadia-code
+      - ttf-fira-code
+    aur:
+      - nerd-fonts-meslo

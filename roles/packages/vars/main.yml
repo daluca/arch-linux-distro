@@ -12,8 +12,6 @@ packages:
       - zsh
       - wget
       - curl
-      - ttf-cascadia-code
-      - ttf-fira-code
       - vim
       - jq
       - openssh
@@ -33,7 +31,6 @@ packages:
       - pavucontrol
     aur:
       - visual-studio-code-bin
-      - nerd-fonts-meslo
       - obsidian
       - flux-bin
       - gron
