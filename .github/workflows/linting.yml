@@ -1,9 +1,6 @@
 name: Lint ansible playbook
 
 on:
-  push:
-    branches: [main]
-
   pull_request:
     paths:
       - "distro.yml"
