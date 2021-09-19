@@ -1,4 +1,10 @@
+# IDE
 .vscode/
+
+# virtual environment
 venv/
+.venv/
+
+# ansible galaxy
 roles.galaxy/
 collections.galaxy/
