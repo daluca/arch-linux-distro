@@ -13,6 +13,8 @@
       tags: thinkpad
     - role: lvm
       tags: lvm
+    - role: dislocker
+      tags: [dislocker, windows]
     - role: packages
       tags: packages
     - role: gnome
@@ -29,4 +31,4 @@
     - role: keyleds
       tags: keyleds
     - role: davinci_resolve
-      tags: [davinci,davinci-resolve,davinci_resolve]
+      tags: [davinci, davinci-resolve, davinci_resolve]
