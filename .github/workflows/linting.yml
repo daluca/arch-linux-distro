@@ -2,10 +2,6 @@ name: Lint ansible playbook
 
 on:
   pull_request:
-    paths:
-      - "distro.yml"
-      - "roles/**/*.yml"
-      - "**/workflows/*.yml"
 
 jobs:
   lint:
