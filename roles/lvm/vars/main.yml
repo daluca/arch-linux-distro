@@ -2,4 +2,5 @@
 # roles/lvm/vars/main.yml
 
 packages:
-  - lvm2
+  lvm:
+    - lvm2
