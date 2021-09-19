@@ -28,3 +28,5 @@
       tags: docker
     - role: keyleds
       tags: keyleds
+    - role: davinci-resolve
+      tags: davinci-resolve

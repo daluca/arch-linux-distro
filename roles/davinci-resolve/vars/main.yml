@@ -1,0 +1,9 @@
+---
+# roles/davinci-resolve/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      - opencl-nvidia
+    aur:
+      - davinci-resolve
