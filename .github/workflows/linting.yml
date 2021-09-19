@@ -12,7 +12,7 @@ on:
 
 jobs:
   lint:
-    name: Linting
+    name: ansible-lint
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
