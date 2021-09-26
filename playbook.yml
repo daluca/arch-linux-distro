@@ -30,5 +30,3 @@
       tags: docker
     - role: keyleds
       tags: keyleds
-    - role: davinci_resolve
-      tags: [davinci,davinci-resolve,davinci_resolve]
