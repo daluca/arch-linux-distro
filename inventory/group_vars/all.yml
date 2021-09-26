@@ -10,3 +10,6 @@ user:
   editor: vim
 
 hostname: artemis
+
+windows:
+  hostname: APOLLO
