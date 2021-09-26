@@ -12,7 +12,6 @@
     path: /etc/default/grub
     regexp: "^(?:# ?|)GRUB_DISABLE_OS_PROBER="
     line: "GRUB_DISABLE_OS_PROBER=false"
-    backup: yes
   notify: generate grub config
 
 - name: enable booting from encrypted drive
@@ -22,7 +21,6 @@
     path: /etc/default/grub
     regexp: "^(?:# ?|)GRUB_ENABLE_CRYPTODISK"
     line: "GRUB_ENABLE_CRYPTODISK=y"
-    backup: yes
   notify: generate grub config
 
 - name: set encrypted drive to boot from
@@ -32,7 +30,6 @@
     path: /etc/default/grub
     regexp: "^GRUB_CMDLINE_LINUX_DEFAULT="
     line: 'GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/nvme0n1p7:volgroup0:allow-discards loglevel=3 quiet"'
-    backup: yes
   notify: generate grub config
 
 - name: set grub default to saved entry
@@ -41,7 +38,6 @@
     path: /etc/default/grub
     regexp: "^GRUB_DEFAULT="
     line: "GRUB_DEFAULT=saved"
-    backup: yes
   notify: generate grub config
 
 - name: boot from previous entry
@@ -50,7 +46,6 @@
     path: /etc/default/grub
     regexp: "^(?:# ?|)GRUB_SAVEDEFAULT="
     line: "GRUB_SAVEDEFAULT=true"
-    backup: yes
   notify: generate grub config
 
 - name: set timeout to 30 seconds
@@ -59,7 +54,6 @@
     path: /etc/default/grub
     regexp: "^GRUB_TIMEOUT="
     line: "GRUB_TIMEOUT=30"
-    backup: yes
   notify: generate grub config
 
 - name: add reboot menu
