@@ -11,6 +11,8 @@
     - role: thinkpad
       when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8'
       tags: thinkpad
+    - role: grub
+      tags: grub
     - role: lvm
       tags: lvm
     - role: packages

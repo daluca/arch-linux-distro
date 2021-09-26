@@ -1,0 +1,7 @@
+---
+# roles/grub/handlers/main.yml
+
+- name: generate grub config
+  become: yes
+  ansible.builtin.shell:
+    cmd: grub-mkconfig -o /boot/grub/grub.cfg

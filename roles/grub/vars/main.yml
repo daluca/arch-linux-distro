@@ -1,0 +1,15 @@
+---
+# roles/grub/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      grub:
+        - grub
+        - dosfstools
+        - os-prober
+        - mtools
+      uefi:
+        - efibootmgr
+      duel_boot:
+        - os-prober
