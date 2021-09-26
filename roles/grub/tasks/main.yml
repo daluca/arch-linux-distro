@@ -1,0 +1,89 @@
+---
+# roles/grub/tasks/main.yml
+
+- name: install packages for Arch Linux
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: enable os-prober
+  become: yes
+  when: windows.hostname is defined
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: "^(?:# ?|)GRUB_DISABLE_OS_PROBER="
+    line: "GRUB_DISABLE_OS_PROBER=false"
+    backup: yes
+  notify: generate grub config
+
+- name: enable booting from encrypted drive
+  become: yes
+  when: true
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: "^(?:# ?|)GRUB_ENABLE_CRYPTODISK"
+    line: "GRUB_ENABLE_CRYPTODISK=y"
+    backup: yes
+  notify: generate grub config
+
+- name: set encrypted drive to boot from
+  become: yes
+  when: true
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: "^GRUB_CMDLINE_LINUX_DEFAULT="
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/nvme0n1p7:volgroup0:allow-discards loglevel=3 quiet"'
+    backup: yes
+  notify: generate grub config
+
+- name: set grub default to saved entry
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: "^GRUB_DEFAULT="
+    line: "GRUB_DEFAULT=saved"
+    backup: yes
+  notify: generate grub config
+
+- name: boot from previous entry
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: "^(?:# ?|)GRUB_SAVEDEFAULT="
+    line: "GRUB_SAVEDEFAULT=true"
+    backup: yes
+  notify: generate grub config
+
+- name: set timeout to 30 seconds
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: "^GRUB_TIMEOUT="
+    line: "GRUB_TIMEOUT=30"
+    backup: yes
+  notify: generate grub config
+
+- name: add reboot menu
+  become: yes
+  ansible.builtin.blockinfile:
+    dest: /etc/grub.d/40_custom
+    marker_begin: REBOOT MENU BEGIN
+    marker_end: REBOOT MENU END
+    block: |
+      menuentry "System restart" {
+        echo "System rebooting..."
+        reboot
+      }
+  notify: generate grub config
+
+- name: add shutdown menu
+  become: yes
+  ansible.builtin.blockinfile:
+    dest: /etc/grub.d/40_custom
+    marker_begin: SHUTDOWN MENU BEGIN
+    marker_end: SHUTDOWN MENU END
+    block: |
+      menuentry "System shutdown" {
+        echo "System shutting down..."
+        halt
+      }
+  notify: generate grub config
