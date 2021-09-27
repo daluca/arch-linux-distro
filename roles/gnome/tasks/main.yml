@@ -34,3 +34,10 @@
 - name: gnome terminal settings
   import_tasks: terminal.yml
   tags: terminal
+
+- name: set profile picture
+  become: yes
+  ansible.builtin.copy:
+    src: profile.png
+    dest: "/var/lib/AccountsService/icons/{{ user.username }}"
+    mode: 0644
