@@ -1,0 +1,52 @@
+---
+# roles/gnome/tasks/terminal.yml
+
+- name: get terminal uuid
+  ansible.builtin.shell:
+    cmd: gsettings get org.gnome.Terminal.ProfilesList default
+  register: profile
+  changed_when: false
+
+- name: set terminal profile uuid
+  ansible.builtin.set_fact:
+    terminal_profile: "{{ profile.stdout|trim(\"'\") }}"
+
+- name: set profile name to Default
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/visible-name"
+    value: "'Default'"
+
+- name: disable scrollbar
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/scrollbar-policy"
+    value: "'never'"
+
+- name: set custom font
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/font"
+    value: "'MesloLGS Nerd Font 10'"
+
+- name: disable system font
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/use-system-font"
+    value: "false"
+
+- name: set terminal width
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/default-size-columns"
+    value: "120"
+
+- name: set terminal height
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/default-size-rows"
+    value: "32"
+
+- name: set color palette to GNOME
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/palette"
+    value: "['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,162,105)', 'rgb(162,115,76)', 'rgb(18,72,139)', 'rgb(163,71,186)', 'rgb(42,161,179)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(246,97,81)', 'rgb(51,209,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(255,255,255)']"
+
+- name: set bold text to be bright
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile }}/bold-is-bright"
+    value: "true"
