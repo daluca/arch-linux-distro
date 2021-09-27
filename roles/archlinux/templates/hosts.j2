@@ -1,5 +1,5 @@
 # Static table lookup for hostnames.
 # See hosts(5) for details.
-127.0.0.1       localhost {{ hostname }}
-::1             localhost {{ hostname }}
-127.0.1.1       {{ hostname }}.local {{ hostname }}
+127.0.0.1       localhost {{ host.hostname }}
+::1             localhost {{ host.hostname }}
+127.0.1.1       {{ host.hostname }}.local {{ host.hostname }}

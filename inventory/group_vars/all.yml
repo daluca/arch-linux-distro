@@ -9,7 +9,8 @@ user:
       - wheel
   editor: vim
 
-hostname: artemis
-
-windows:
-  hostname: APOLLO
+host:
+  hostname: artemis
+  timezone: Pacific/Auckland
+  windows:
+    hostname: APOLLO
