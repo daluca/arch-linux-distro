@@ -56,4 +56,3 @@
 - name: "set timezone to {{ host.timezone }}"
   community.general.timezone:
     name: "{{ host.timezone }}"
-  tags: test
