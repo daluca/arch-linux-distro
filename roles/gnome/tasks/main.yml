@@ -16,7 +16,21 @@
   vars:
     gnome_extension_ids: "{{ gnome.extensions }}"
 
-- name: Add dvorak keyboard layout
+- name: add dvorak keyboard layout
   community.general.dconf:
     key: /org/gnome/desktop/input-sources/sources
     value: "[('xkb', 'us'), ('xkb', 'us+dvorak')]"
+
+- name: set numlock on login
+  community.general.dconf:
+    key: /org/gnome/desktop/peripherals/keyboard/numlock-state
+    value: "true"
+
+- name: remember last state of numlock
+  community.general.dconf:
+    key: /org/gnome/desktop/peripherals/keyboard/remember-numlock-state
+    value: "true"
+
+- name: gnome terminal settings
+  import_tasks: terminal.yml
+  tags: terminal
