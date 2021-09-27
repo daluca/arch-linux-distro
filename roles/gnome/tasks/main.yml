@@ -41,3 +41,24 @@
     src: profile.png
     dest: "/var/lib/AccountsService/icons/{{ user.username }}"
     mode: 0644
+
+- name: copy background
+  ansible.builtin.copy:
+    src: background.png
+    dest: /home/daluca/.local/share/backgrounds/background.png
+    mode: 0644
+
+- name: set background
+  community.general.dconf:
+    key: /org/gnome/desktop/background/picture-uri
+    value: "'file:///home/daluca/.local/share/backgrounds/background.png'"
+
+- name: enable fractional scaling
+  community.general.dconf:
+    key: /org/gnome/mutter/experimental-features
+    value: "['scale-monitor-framebuffer']"
+
+- name: enable night light
+  community.general.dconf:
+    key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
+    value: "true"
