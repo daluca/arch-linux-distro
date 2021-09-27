@@ -20,7 +20,7 @@
 
 - name: install duel boot specific packages
   become: yes
-  when: windows.hostname is defined
+  when: host.windows.hostname is defined
   community.general.pacman:
     name: "{{ item }}"
     state: present

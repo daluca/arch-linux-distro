@@ -52,3 +52,7 @@
 - name: install network manager
   import_tasks: networkmanager.yml
   tags: networkmanager
+
+- name: "set timezone to {{ host.timezone }}"
+  community.general.timezone:
+    name: "{{ host.timezone }}"
