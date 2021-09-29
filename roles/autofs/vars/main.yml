@@ -1,0 +1,9 @@
+---
+# roles/autofs/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      - nfs-utils
+    aur:
+      - autofs

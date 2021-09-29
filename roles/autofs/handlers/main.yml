@@ -1,0 +1,16 @@
+---
+# roles/autofs/handlers/main.yml
+
+- name: enable autofs
+  become: yes
+  ansible.builtin.systemd:
+    name: autofs
+    state: started
+    enabled: yes
+
+- name: enable rpcbind
+  become: yes
+  ansible.builtin.systemd:
+    name: rpcbind
+    state: started
+    enabled: yes
