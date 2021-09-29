@@ -24,6 +24,8 @@
       vars:
         repo: git@github.com:daluca/dotfiles.git
       tags: dotfiles
+    - role: autofs
+      tags: autofs
     - role: yubikey
       tags: yubikey
     - role: docker
