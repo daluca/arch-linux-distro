@@ -8,7 +8,7 @@
 - name: link windows fonts
   become: yes
   ansible.builtin.file:
-    src: /mnt/{{ windows.hostname|lower }}/Windows/Fonts
+    src: /mnt/{{ host.windows.hostname|lower }}/Windows/Fonts
     dest: /usr/share/fonts/WindowsFonts
     state: link
   notify: regenerate font cache

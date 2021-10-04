@@ -1,0 +1,5 @@
+---
+# roles/dislocker/meta/main.yml
+
+collections:
+  - ansible.posix
