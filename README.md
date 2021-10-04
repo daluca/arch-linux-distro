@@ -1,6 +1,6 @@
 # Arch Linux distro
 
-## Make
+## Command-line
 
 Using `make` to run `ansible-playbook`
 
@@ -11,51 +11,43 @@ make run
 Passing `ansible-playbook` flags to `make`
 
 ```bash
-make run PLAYBOOK_ARGS="--tags pacman"
+make run ARGS="--tags pacman"
 ```
 
-## Command-line
+Dry run playbook
 
-Using the actual command-line tools to run `ansible-playbook`
+```bash
+make dry-run
+```
 
 ### Setup
 
-Set up virtual environment
+Set up virtual environment, dev dependencies
 
 ```bash
-python3.9 -m venv venv
+make install
 ```
 
-Activate virtual environment
+### Linting
+
+Lint playbook with `ansible-lint`
 
 ```bash
-. venv/bin/activate
+make lint
 ```
 
-Download required packages
+### Formatting
+
+Format playbook with `prettier`
 
 ```bash
-pip3 install --upgrade --requirement requirements.txt
+make format
 ```
 
-### Running
-
-Dry run distro.yml
+Check file that will be formatted with `prettier`
 
 ```bash
-ansible-playbook distro.yml --check
-```
-
-Actually run the playbook
-
-```bash
-ansible-playbook distro.yml
-```
-
-Include variables file
-
-```bash
-ansible-playbook distro.yml --extra-vars "@variables.yml"
+make check
 ```
 
 ## Lenovo ThinkPad X1 Carbon (Gen 8)
