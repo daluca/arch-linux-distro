@@ -1,32 +1,65 @@
-PYTHON_VERSION = python3.9
-PYTHON = $(VENV_BIN)/$(PYTHON_VERSION)
-VENV = venv
+VENV = .venv
 VENV_BIN = $(VENV)/bin
-ANSIBLE = $(PYTHON) $(VENV_BIN)/ansible-playbook
-ANSIBLE_GALAXY = $(PYTHON) $(VENV_BIN)/ansible-galaxy
-GALAXY_ROLES = roles.galaxy
-PLAYBOOK = distro.yml
+NODE_BIN = node_modules/.bin
+PRETTIER =$(NODE_BIN)/prettier
 
-.PHONY = help clean
+DEPENDENCIES = collections.galaxy roles/jaredhocutt.gnome_extensions
 
+ANSIBLE = $(ANSIBLE_PLAYBOOK) $(ANSIBLE_GALAXY) $(ANSIBLE_LINT)
+
+ANSIBLE_PLAYBOOK = $(VENV_BIN)/ansible-playbook
+ANSIBLE_GALAXY = $(VENV_BIN)/ansible-galaxy
+ANSIBLE_LINT = $(VENV_BIN)/ansible-lint
+
+.PHONY: help
 help:
-	@echo "commands: help, run, check, venv, roles, clean"
+	@echo commands: help, run, lint, check, format, clean
+	@printf "\thelp\t\tprint this message then exit\n"
+	@printf "\trun\t\trun the ansible-playbook\n\t\t\t\tARGS to pass arguement to ansible-playbook\n"
+	@printf "\tlint\t\tlint ansible-playbook\n"
+	@printf "\tcheck\t\tcheck formatting\n"
+	@printf "\tformat\t\tapply formatting\n"
+	@printf "\tinstall\t\tinstall dev dependencies\n"
+	@printf "\tclean\t\tremove temporary files\n"
 
-run: venv roles
-	@$(ANSIBLE) $(PLAYBOOK) $(PLAYBOOK_ARGS)
+.PHONY: run
+run: .vault_key $(ANSIBLE_PLAYBOOK) $(DEPENDENCIES)
+	@pipenv run ansible-playbook --vault-password-file .vault_key playbook.yml $(ARGS)
 
-check: venv roles
-	@$(ANSIBLE) $(PLAYBOOK) --check $(PLAYBOOK_ARGS)
+.PHONY: lint
+lint: $(ANSIBLE_LINT)
+	@pipenv run ansible-lint --project-dir . -f pep8
 
-venv: requirements.txt
-	@test -d $(VENV) || $(PYTHON_VERSION) -m venv $(VENV)
-	@$(PYTHON) -m pip install --upgrade pip setuptools
-	@$(PYTHON) -m pip install --upgrade --requirement requirements.txt
+.PHONY: check
+check: $(PRETTIER)
+	@$(PRETTIER) --check .
 
-roles:
-	@test -d $(GALAXY_ROLES) || mkdir $(GALAXY_ROLES)
-	@$(ANSIBLE_GALAXY) install --roles-path $(GALAXY_ROLES) --role-file requirements.yml
-	@touch $(GALAXY_ROLES)/touchfile
+.PHONY: format
+format: $(PRETTIER)
+	@$(PRETTIER) --write .
 
+.PHONY: install
+install: $(ANSIBLE) $(DEPENDENCIES)
+	@echo "all dependencies installed"
+
+collections.galaxy:
+	@pipenv run ansible-galaxy collection install --requirements-file roles/requirements.yml
+
+roles/jaredhocutt.gnome_extensions:
+	@pipenv run ansible-galaxy role install --role-file roles/requirements.yml
+
+$(ANSIBLE): .venv
+	@pipenv install --dev
+
+$(PRETTIER):
+	@yarn install --dev
+
+.venv:
+	@mkdir .venv
+
+.vault_key:
+	@echo "no vault key"
+
+.PHONY: clean
 clean:
-	@rm -rf $(VENV) $(GALAXY_ROLES)
+	@rm -rf .venv/ collections.galaxy/ node_modules/ roles/*.*/
