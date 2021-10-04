@@ -3,7 +3,7 @@ VENV_BIN = $(VENV)/bin
 NODE_BIN = node_modules/.bin
 PRETTIER =$(NODE_BIN)/prettier
 
-DEPENDENCIES = collections.galaxy roles/jaredhocutt.gnome_extensions
+DEPENDENCIES = collections.galaxy roles.galaxy
 
 ANSIBLE = $(ANSIBLE_PLAYBOOK) $(ANSIBLE_GALAXY) $(ANSIBLE_LINT)
 
@@ -51,7 +51,7 @@ install: $(ANSIBLE) $(DEPENDENCIES)
 collections.galaxy:
 	@pipenv run ansible-galaxy collection install --requirements-file roles/requirements.yml
 
-roles/jaredhocutt.gnome_extensions:
+roles.galaxy:
 	@pipenv run ansible-galaxy role install --role-file roles/requirements.yml
 
 $(ANSIBLE): .venv
