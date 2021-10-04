@@ -8,13 +8,17 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
-[Makefile]
-indent_style = tab
-
 [*.{yml,yaml}]
 indent_style = space
 indent_size = 2
 quote_type = double
+
+[*.json]
+indent_style = space
+indent_size = 4
+
+[Makefile]
+indent_style = tab
 
 [Pipfile.lock]
 indent_style = space
@@ -24,3 +28,6 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 quote_type = double
+
+[package.json]
+indent_size = 2
