@@ -9,7 +9,7 @@
 
 - name: set terminal profile uuid
   ansible.builtin.set_fact:
-    terminal_profile: "{{ profile.stdout|trim(\"'\") }}"
+    terminal_profile: '{{ profile.stdout|trim("''") }}'
 
 - name: set profile name to Default
   community.general.dconf:
