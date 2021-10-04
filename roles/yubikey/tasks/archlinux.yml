@@ -10,3 +10,4 @@
   loop:
     - "{{ packages.yubikey }}"
     - "{{ packages.archlinux }}"
+  notify: enable pcscd

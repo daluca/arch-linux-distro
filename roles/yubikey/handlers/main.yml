@@ -1,0 +1,9 @@
+---
+# roles/yubikey/handlers/main.yml
+
+- name: enable pcscd
+  become: yes
+  ansible.builtin.systemd:
+    name: pcscd
+    state: started
+    enabled: yes

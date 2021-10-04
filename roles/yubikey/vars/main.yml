@@ -9,6 +9,12 @@ packages:
     - hopenpgp-tools
     - yubikey-personalization
     - yubikey-personalization-gui
+    - yubioath-desktop
     - yubikey-manager
+    - pcsclite
   archlinux:
     - gtk2
+
+services:
+  systemd:
+    - pcscd
