@@ -1,0 +1,24 @@
+---
+# roles/dislocker/tasks/main.yml
+
+- name: install Arch Linux packages
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: mount bitlocker
+  become: yes
+  ansible.posix.mount:
+    src: /dev/nvme0n1p3
+    path: /mnt/bitlocker
+    fstype: fuse.dislocker
+    opts: "recovery-password={{ host.windows.recovery_password }},nofail,nonempty"
+    state: mounted
+
+- name: mount {{ host.windows.hostname|lower }}
+  become: yes
+  ansible.posix.mount:
+    src: /mnt/bitlocker/dislocker-file
+    path: "/mnt/{{ host.windows.hostname|lower }}"
+    fstype: auto
+    opts: ro,loop
+    state: mounted

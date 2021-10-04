@@ -11,3 +11,6 @@ collections.galaxy/
 
 # nodejs
 node_modules/
+
+# ansible-vault
+.vault_key

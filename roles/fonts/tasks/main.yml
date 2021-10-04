@@ -1,0 +1,14 @@
+---
+# roles/fonts/tasks/main.yml
+
+- name: install Arch Linux packages
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: link windows fonts
+  become: yes
+  ansible.builtin.file:
+    src: /mnt/{{ host.windows.hostname|lower }}/Windows/Fonts
+    dest: /usr/share/fonts/WindowsFonts
+    state: link
+  notify: regenerate font cache

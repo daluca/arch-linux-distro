@@ -2,7 +2,7 @@
 # roles/gnome/tasks/terminal.yml
 
 - name: get terminal uuid
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: gsettings get org.gnome.Terminal.ProfilesList default
   register: profile
   changed_when: false
