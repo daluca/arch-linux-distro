@@ -26,8 +26,8 @@ jobs:
 
       - name: lint playbook
         run: |
-          find -type f -name '.config'
-          ls
+          ls -latr
+          ansible-lint --version
           ansible-lint
 
   prettier:
