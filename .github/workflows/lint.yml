@@ -1,10 +1,10 @@
-name: Lint ansible playbook
+name: linting
 
 on:
   pull_request:
 
 jobs:
-  lint:
+  ansible-lint:
     name: ansible-lint
     runs-on: ubuntu-latest
     steps:
@@ -30,3 +30,15 @@ jobs:
 
       - name: lint playbook
         run: ansible-lint --project-dir . -f pep8
+
+  prettier:
+    name: prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: prettier
+        uses: creyD/prettier_action@v4.0
+        with:
+          prettier_options: --check .
