@@ -26,7 +26,7 @@ jobs:
 
       - name: lint playbook
         run: |
-          "$( find -type f -name '.config' )"
+          find -type f -name '.config'
           ls
           ansible-lint
 
