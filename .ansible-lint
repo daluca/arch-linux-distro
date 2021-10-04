@@ -17,6 +17,8 @@ mock_roles:
   - jaredhocutt.gnome_extensions
   - kewlfft.aur
 
+offline: true
+
 enable_list:
   - fqcn-builtins
 
