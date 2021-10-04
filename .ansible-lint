@@ -1,6 +1,10 @@
 ---
 # .ansible-lint
 
+verbosity: 2
+
+offline: true
+
 exclude_paths:
   - collections.galaxy/
   - roles.galaxy/
@@ -16,8 +20,6 @@ mock_modules:
 mock_roles:
   - jaredhocutt.gnome_extensions
   - kewlfft.aur
-
-offline: true
 
 enable_list:
   - fqcn-builtins

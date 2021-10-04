@@ -25,7 +25,10 @@ jobs:
           pipenv install --dev --system --ignore-pipfile
 
       - name: lint playbook
-        run: ansible-lint -c "$( find -type f -name '.config' )"
+        run: |
+          "$( find -type f -name '.config' )"
+          ls
+          ansible-lint
 
   prettier:
     name: prettier
