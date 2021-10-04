@@ -13,9 +13,11 @@ ANSIBLE_LINT = $(VENV_BIN)/ansible-lint
 
 .PHONY: help
 help:
-	@echo commands: help, run, lint, check, format, clean
+	@printf "usage: make [arguement]\n\n"
+	@printf "arguement:\n"
 	@printf "\thelp\t\tprint this message then exit\n"
 	@printf "\trun\t\trun the ansible-playbook\n\t\t\t\tARGS to pass arguement to ansible-playbook\n"
+	@printf "\tdry-run\t\trun but don't execute the ansible-playbook\n"
 	@printf "\tlint\t\tlint ansible-playbook\n"
 	@printf "\tcheck\t\tcheck formatting\n"
 	@printf "\tformat\t\tapply formatting\n"
@@ -25,6 +27,10 @@ help:
 .PHONY: run
 run: .vault_key $(ANSIBLE_PLAYBOOK) $(DEPENDENCIES)
 	@pipenv run ansible-playbook --vault-password-file .vault_key playbook.yml $(ARGS)
+
+.PHONY: dry-run
+dry-run: 
+	@pipenv run ansible-playbook --vault-password-file .vault_key playbook.yml --check $(ARGS)
 
 .PHONY: lint
 lint: $(ANSIBLE_LINT)
