@@ -8,5 +8,6 @@ packages:
     - ccid
     - hopenpgp-tools
     - yubikey-personalization
+    - yubikey-manager
   archlinux:
     - gtk2
