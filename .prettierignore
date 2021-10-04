@@ -1,0 +1,7 @@
+.vscode/
+.venv/
+.git/
+collections.galaxy/
+collections.roles/
+
+roles/jaredhocutt.gnome_extensions/

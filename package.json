@@ -1,0 +1,12 @@
+{
+  "name": "arch-linux-ansible",
+  "description": "Ansible playbook for setting up Arch Linux distro",
+  "main": "playbook.yml",
+  "repository": "git@github.com:daluca/arch-linux-ansible.git",
+  "author": "Lucas Slebos <lucas@slebos.nz>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "prettier": "2.4.1"
+  }
+}

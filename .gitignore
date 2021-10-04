@@ -8,3 +8,6 @@ venv/
 # ansible galaxy
 roles.galaxy/
 collections.galaxy/
+
+# nodejs
+node_modules/
