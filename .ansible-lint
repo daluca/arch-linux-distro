@@ -1,7 +1,10 @@
-warn_list: # or 'skip_list' to silence them completely
-  - meta-no-info # meta/main.yml should contain relevant info
-  - no-tabs  # Most files should not contain tabs
-  - command-instead-of-shell  # Use shell only when shell functionality is required
+---
+# .ansible-lint
 
 enable_list:
-  - fqcn-builtins # opt-in
+  - fqcn-builtins
+
+skip_list:
+  - meta-no-info
+  - no-tabs
+  - command-instead-of-shell
