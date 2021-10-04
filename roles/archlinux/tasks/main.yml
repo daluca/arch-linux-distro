@@ -9,7 +9,7 @@
     update_cache: yes
   loop: ["{{ packages.base }}"]
 
-- name: set hostname to {{ hostname }}
+- name: set hostname to {{ host.hostname }}
   become: yes
   ansible.builtin.template:
     src: hostname.j2
