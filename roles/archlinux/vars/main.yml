@@ -9,15 +9,11 @@ packages:
     - wireless_tools
     - wpa_supplicant
     - dialog
-    - dosfstools
-    - efibootmgr
-    - grub
     - linux
     - linux-headers
     - linux-lts
     - linux-lts-headers
     - netctl
-    - mtools
     - sudo
     - openssh
   pacman:
