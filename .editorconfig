@@ -19,3 +19,8 @@ quote_type = double
 [Pipfile.lock]
 indent_style = space
 indent_size = 4
+
+[.ansible-lint]
+indent_style = space
+indent_size = 2
+quote_type = double
