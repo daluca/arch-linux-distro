@@ -22,6 +22,8 @@
     - role: gnome
       when: ansible_facts['env']['DESKTOP_SESSION']|lower == 'gnome'
       tags: gnome
+    - role: bluetooth
+      tags: bluetooth
     - role: fonts
       tags: fonts
     - role: dotfiles

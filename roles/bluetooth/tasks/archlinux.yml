@@ -1,0 +1,10 @@
+---
+# roles/bluetooth/archlinux.yml
+
+- name: install bluetooth specific packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: ["{{ packages.archlinux.pacman }}"]
