@@ -5,7 +5,7 @@
   when: ansible_facts['os_family']|lower == 'archlinux'
   import_tasks: archlinux.yml
 
-- name: docker enabled
+- name: enable docker
   become: yes
   ansible.builtin.systemd:
     name: docker

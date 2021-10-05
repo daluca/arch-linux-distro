@@ -1,0 +1,9 @@
+---
+# roles/bluetooth/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      - bluez
+      - bluez-utils
+      - gnome-bluetooth
