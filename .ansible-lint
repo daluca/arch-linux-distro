@@ -2,7 +2,7 @@
 # .ansible-lint
 
 verbosity: 2
-
+parseable: true
 offline: true
 
 exclude_paths:
