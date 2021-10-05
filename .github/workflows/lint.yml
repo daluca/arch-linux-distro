@@ -28,8 +28,8 @@ jobs:
 
       - name: install ansible requirements
         run: |
-          ansible-galaxy collection install --collections-path collections.galaxy --requirements-file requirements.yml
-          ansible-galaxy role install --roles-path roles.galaxy --role-file requirements.yml
+          ansible-galaxy collection install --requirements-file requirements.yml
+          ansible-galaxy role install --role-file requirements.yml
 
       - name: check before running ansible-lint
         run: |
