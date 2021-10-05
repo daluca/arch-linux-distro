@@ -25,10 +25,7 @@ jobs:
           pipenv install --dev --system --ignore-pipfile
 
       - name: lint playbook
-        run: |
-          ls -latr
-          ansible-lint --version
-          ansible-lint
+        run: ansible-lint
 
   prettier:
     name: prettier
