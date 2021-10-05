@@ -3,7 +3,7 @@
 
 verbosity: 2
 parseable: true
-offline: false
+offline: true
 
 exclude_paths:
   - collections.galaxy/
@@ -12,14 +12,6 @@ exclude_paths:
   - .venv/
   - .vscode/
   - node_modules/
-
-mock_modules:
-  - ansible.posix.mount
-  - ansible.posix.synchronize
-
-mock_roles:
-  - jaredhocutt.gnome_extensions
-  - kewlfft.aur
 
 enable_list:
   - fqcn-builtins

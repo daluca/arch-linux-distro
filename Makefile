@@ -49,10 +49,10 @@ install: $(ANSIBLE) $(DEPENDENCIES)
 	@echo "all dependencies installed"
 
 collections.galaxy:
-	@pipenv run ansible-galaxy collection install --requirements-file roles/requirements.yml
+	@pipenv run ansible-galaxy collection install --requirements-file requirements.yml
 
 roles.galaxy:
-	@pipenv run ansible-galaxy role install --role-file roles/requirements.yml
+	@pipenv run ansible-galaxy role install --role-file requirements.yml
 
 $(ANSIBLE): .venv
 	@pipenv install --dev
