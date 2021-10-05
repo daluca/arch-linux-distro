@@ -3,7 +3,7 @@
 
 verbosity: 2
 parseable: true
-offline: false
+offline: true
 
 exclude_paths:
   - collections.galaxy/
