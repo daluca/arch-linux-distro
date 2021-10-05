@@ -7,6 +7,8 @@ jobs:
   ansible-lint:
     name: ansible-lint
     runs-on: ubuntu-latest
+    env:
+      GITHUB_ACTIONS: true
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
