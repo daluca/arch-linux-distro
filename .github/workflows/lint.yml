@@ -7,6 +7,8 @@ jobs:
   ansible-lint:
     name: ansible-lint
     runs-on: ubuntu-latest
+    env:
+      GITHUB_ACTIONS: true
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
@@ -22,14 +24,11 @@ jobs:
           python -m pip install --upgrade pip setuptools pipenv
           pipenv install --dev --system --ignore-pipfile
 
-      - name: install ansible role dependencies
-        run: ansible-galaxy role install --role-file roles/requirements.yml
-
-      - name: install ansible collection dependencies
-        run: ansible-galaxy collection install --requirements-file roles/requirements.yml
-
       - name: lint playbook
-        run: ansible-lint --project-dir . -f pep8
+        run: |
+          ls -latr
+          ansible-lint --version
+          ansible-lint
 
   prettier:
     name: prettier
