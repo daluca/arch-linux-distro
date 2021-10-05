@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_ACTIONS: true
+      ANSIBLE_COLLECTIONS_PATH: collections.galaxy
+      ANSIBLE_ROLES_PATH: roles.galaxy:roles
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
