@@ -13,13 +13,13 @@ offline: true
 #   - .vscode/
 #   - node_modules/
 
-# mock_modules:
-#   - ansible.posix.mount
-#   - ansible.posix.synchronize
+mock_modules:
+  - ansible.posix.mount
+  - ansible.posix.synchronize
 
-# mock_roles:
-#   - jaredhocutt.gnome_extensions
-#   - kewlfft.aur
+mock_roles:
+  - jaredhocutt.gnome_extensions
+  - kewlfft.aur
 
 enable_list:
   - fqcn-builtins
