@@ -8,7 +8,7 @@ jobs:
     name: ansible-lint
     runs-on: ubuntu-latest
     env:
-      GITHUB_ACTIONS: true
+      # GITHUB_ACTIONS: true
       ANSIBLE_COLLECTIONS_PATH: collections.galaxy
       ANSIBLE_ROLES_PATH: roles.galaxy:roles
     steps:
