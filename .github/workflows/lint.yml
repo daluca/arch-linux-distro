@@ -26,15 +26,10 @@ jobs:
           python -m pip install --upgrade pip setuptools pipenv
           pipenv install --dev --system --ignore-pipfile
 
-      - name: install ansible requirements
-        run: |
-          ansible-galaxy collection install --requirements-file requirements.yml
-          ansible-galaxy role install --role-file requirements.yml
-
-      - name: check before running ansible-lint
-        run: |
-          pwd
-          ls -latr --color=tty
+      # - name: install ansible requirements
+      #   run: |
+      #     ansible-galaxy collection install --requirements-file requirements.yml
+      #     ansible-galaxy role install --role-file requirements.yml
 
       - name: lint playbook
         run: ansible-lint
