@@ -29,6 +29,7 @@ packages:
       - signal-desktop
       - python-pipenv
       - pavucontrol
+      - element-desktop
     aur:
       - visual-studio-code-bin
       - obsidian
