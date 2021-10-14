@@ -13,6 +13,6 @@
 
 - name: sync oh-my-zsh custom scripts
   ansible.posix.synchronize:
-    src: "/home/{{ user.username }}/.dotfiles/.oh-my-zsh/custom"
+    src: "/home/{{ user.username }}/.dotfiles/.oh-my-zsh/custom/"
     dest: "/home/{{ user.username }}/.oh-my-zsh/custom"
     archive: yes
