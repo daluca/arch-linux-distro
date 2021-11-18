@@ -1,0 +1,9 @@
+- name: blacklist watchdog
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/nowatchdog.conf
+    line: "blacklist iTCO_wdt"
+    create: yes
+    owner: root
+    group: root
+    mode: 0440

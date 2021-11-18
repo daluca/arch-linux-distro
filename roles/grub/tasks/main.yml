@@ -29,7 +29,7 @@
   ansible.builtin.lineinfile:
     path: /etc/default/grub
     regexp: "^GRUB_CMDLINE_LINUX_DEFAULT="
-    line: 'GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/nvme0n1p7:volgroup0:allow-discards loglevel=3 quiet"'
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/nvme0n1p7:volgroup0:allow-discards loglevel=3 quiet nowatchdog"'
   notify: generate grub config
 
 - name: set grub default to saved entry
