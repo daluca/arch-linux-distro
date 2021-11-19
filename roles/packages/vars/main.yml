@@ -20,7 +20,7 @@ packages:
       - kubectx
       - doctl
       - terraform
-      - vlc
+      - mpv
       - nvidia
       - nvidia-lts
       - tmux
