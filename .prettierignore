@@ -1,5 +1,15 @@
-.vault_key
+# IDE
+.vscode/
+
+# virtual environment
 .venv/
-.git/
-collections.galaxy/
+
+# ansible galaxy
 roles.galaxy/
+collections.galaxy/
+
+# nodejs
+node_modules/
+
+# ansible-vault
+.vault_key
