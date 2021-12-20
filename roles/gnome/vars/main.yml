@@ -5,6 +5,7 @@ packages:
   gnome:
     - gnome
     - gnome-tweaks
+    - gthumb
   thinkpad:
     - gnome-firmware
   aur:
