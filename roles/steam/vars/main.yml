@@ -1,0 +1,8 @@
+---
+# roles/steam/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      - steam
+      - lib32-nvidia-utils
