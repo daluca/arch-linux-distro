@@ -40,3 +40,5 @@
       tags: docker
     - role: keyleds
       tags: keyleds
+    - role: steam
+      tags: steam
