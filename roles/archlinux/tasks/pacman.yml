@@ -45,3 +45,20 @@
     state: started
     enabled: yes
   tags: pacman
+
+- name: create pacman hooks directory
+  become: yes
+  ansible.builtin.file:
+    path: /etc/pacman.d/hooks
+    state: directory
+    mode: 0755
+
+- name: create clean package cache hooks
+  become: yes
+  ansible.builtin.template:
+    src: "{{ item }}.j2"
+    dest: "/etc/pacman.d/hooks/{{ item }}"
+    mode: 0644
+  loop:
+    - clean-uninstalled-pacman-cache.hook
+    - clean-updated-pacman-cache.hook
