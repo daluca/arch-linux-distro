@@ -1,0 +1,15 @@
+---
+# roles/doas/tasks/main.yml
+
+- name: install packages for Arch Linux
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  import_tasks: archlinux.yml
+
+- name: create doas config
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/doas.conf
+    line: permit persist :wheel
+    create: yes
+    mode: 0400
+    validate: doas -C %s
