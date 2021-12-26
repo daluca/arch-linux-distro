@@ -1,0 +1,7 @@
+---
+# roles/doas/vars/main.yml
+
+packages:
+  archlinux:
+    pacman:
+      - opendoas

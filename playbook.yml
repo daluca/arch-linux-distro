@@ -17,6 +17,8 @@
       tags: lvm
     - role: kernal_modules
       tags: kernal_modules
+    - role: doas
+      tags: doas
     - role: dislocker
       tags: [dislocker, windows]
     - role: packages
