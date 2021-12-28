@@ -14,6 +14,15 @@
   become: yes
   ansible.builtin.lineinfile:
     path: /etc/paru.conf
-    backup: yes
-    regexp: "^#BottomUp"
-    line: "BottomUp"
+    regexp: ^#BottomUp
+    line: BottomUp
+
+- name: use doas for privilege escalation
+  become: yes
+  ansible.builtin.blockinfile:
+    path: /etc/paru.conf
+    marker_begin: PRIVILEGE ESCALATION BEGIN
+    marker_end: PRIVILEGE ESCALATION END
+    block: |
+      [bin]
+      Sudo = doas
