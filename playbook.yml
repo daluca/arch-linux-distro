@@ -28,6 +28,8 @@
       tags: gnome
     - role: bluetooth
       tags: bluetooth
+    - role: fancontrol
+      tags: fancontrol
     - role: fonts
       tags: fonts
     - role: dotfiles

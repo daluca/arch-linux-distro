@@ -1,0 +1,18 @@
+---
+# roles/fancontrol/tasks/thinkfan.yml
+
+- name: copy thinkfan config
+  become: yes
+  ansible.builtin.template:
+    src: "{{ item }}.j2"
+    dest: /etc/{{ item }}
+    mode: 0644
+  notify: restart thinkfan
+  loop:
+    - thinkfan.conf
+
+- name: enable thinkfan
+  become: yes
+  ansible.builtin.systemd:
+    name: thinkfan
+    enabled: yes

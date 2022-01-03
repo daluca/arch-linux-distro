@@ -1,0 +1,18 @@
+sensors:
+  - hwmon: /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon5
+    indices: [1, 3, 5, 6, 7]
+
+fans:
+  - hwmon: /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon5
+    indices: [1]
+
+levels:
+  - speed: 0
+    upper_limit: [45, 45, 45, 45, 45]
+
+  - speed: 100
+    lower_limit: [45, 45, 45, 45, 45]
+    upper_limit: [65, 65, 65, 65, 65]
+
+  - speed: 255
+    lower_limit: [60, 60, 60, 60, 60]
