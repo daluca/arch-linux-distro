@@ -1,0 +1,7 @@
+---
+# roles/fancontrol/vars/main.yml
+
+packages:
+  archlinux:
+    aur:
+      - thinkfan

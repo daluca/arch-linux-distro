@@ -1,0 +1,27 @@
+---
+# roles/fancontrol/tasks/archlinux.yml
+
+- name: install fancontrol specific packages
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: ["{{ packages.archlinux.pacman }}"]
+  notify: run sensors-detect
+
+- name: copy Arch Linux config
+  become: yes
+  ansible.builtin.template:
+    src: "archlinux/{{ item }}.j2"
+    dest: /etc/{{ item }}
+    mode: 0644
+  notify: restart thinkfan
+  loop:
+    - thinkfan.conf
+
+- name: enable thinkfan
+  become: yes
+  ansible.builtin.systemd:
+    name: thinkfan
+    enabled: yes

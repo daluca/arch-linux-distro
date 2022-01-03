@@ -1,0 +1,8 @@
+---
+# roles/fancontrol/handlers/main.yml
+
+- name: restart thinkfan
+  become: yes
+  ansible.builtin.systemd:
+    name: thinkfan
+    state: restarted
