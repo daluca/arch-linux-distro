@@ -4,3 +4,7 @@
 - name: install packages for Arch Linux
   when: ansible_facts['os_family']|lower == 'archlinux'
   import_tasks: archlinux.yml
+
+- name: configure thinkfan
+  when: ansible_facts['product_version'] == 'ThinkPad X1 Carbon Gen 8'
+  import_tasks: thinkfan.yml
