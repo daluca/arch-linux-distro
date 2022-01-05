@@ -1,0 +1,7 @@
+repos:
+  - repo: https://github.com/ansible-community/ansible-lint
+    rev: v5.3.1
+    hooks:
+      - id: ansible-lint
+        args:
+          - --project-dir . -f pep8
