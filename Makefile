@@ -29,7 +29,7 @@ run: .vault_key $(ANSIBLE_PLAYBOOK) $(DEPENDENCIES)
 	@pipenv run ansible-playbook --vault-password-file .vault_key playbook.yml $(ARGS)
 
 .PHONY: dry-run
-dry-run: 
+dry-run:
 	@pipenv run ansible-playbook --vault-password-file .vault_key playbook.yml --check $(ARGS)
 
 .PHONY: lint
