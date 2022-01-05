@@ -4,6 +4,9 @@ repos:
     hooks:
       - id: check-yaml
       - id: trailing-whitespace
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: no-commit-to-branch
 
   - repo: https://github.com/ansible-community/ansible-lint
     rev: v5.3.1
