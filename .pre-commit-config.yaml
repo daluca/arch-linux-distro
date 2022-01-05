@@ -14,3 +14,8 @@ repos:
       - id: ansible-lint
         args:
           - --project-dir . -f pep8
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.5.1
+    hooks:
+      - id: prettier
