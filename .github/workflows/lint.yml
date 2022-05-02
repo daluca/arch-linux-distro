@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GITHUB_ACTIONS: true
+      # GITHUB_ACTIONS: true
       ANSIBLE_COLLECTIONS_PATH: collections.galaxy
       ANSIBLE_ROLES_PATH: roles.galaxy:roles
 
@@ -17,24 +17,29 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v2
 
-      - name: setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.x"
-          architecture: x64
+      # - name: setup python
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: "3.x"
+      #     architecture: x64
 
-      - name: install ansible-lint
-        run: |
-          python -m pip install --upgrade pip setuptools pipenv
-          pipenv install --dev --system --ignore-pipfile
+      # - name: install ansible-lint
+      #   run: |
+      #     python -m pip install --upgrade pip setuptools pipenv
+      #     pipenv install --dev --system --ignore-pipfile
 
       - name: install ansible requirements
         run: |
           ansible-galaxy collection install --requirements-file requirements.yml
           ansible-galaxy role install --role-file requirements.yml
 
-      - name: lint playbook
-        run: ansible-lint
+      - name: lint ansible playbook
+        uses: ansible/ansible-lint-action@v4.1.0
+        with:
+          targets: .
+
+      # - name: lint playbook
+      #   run: ansible-lint
 
   prettier:
     name: prettier
